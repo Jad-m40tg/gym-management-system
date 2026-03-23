@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fitlife Gym - Login</title>
+
+    <style>
+        /* ===== GLOBAL ===== */
+        @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap'); 
+        @import url('https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+        
+        body {
+            margin: 0;
+            padding: 0;
+            background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), 
+            url("login_bg_alt.png");
+            font-family: 'Inter', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        /* ===== CARD ===== */
+        .card {
+            background-color: #1e1e1e;
+            padding: 50px 40px;
+            border-radius: 12px;
+            width: 320px;
+            text-align: center;
+            box-shadow: 0 0 20px rgba(255,255,255,0.05);
+            transition: 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-6px);
+        }
+
+        /* ===== TEXT ===== */
+        h1 {
+            font-family: 'Kanit', sans-serif;
+            font-weight: 400; 
+            font-size: 36px;  
+            color: white;
+            margin-bottom: 10px;
+        }
+
+        .subtitle {
+            color: #bbbbbb;
+            margin-bottom: 30px;
+            font-size: 14px;
+        }
+
+        /* ===== INPUTS ===== */
+        input {
+            width: 87%;
+            padding: 10px;
+            margin-bottom: 16px;
+            border-radius: 8px;
+            border: none;
+            outline: none;
+            background-color: #2a2a2a;
+            color: white;
+            font-size: 14px;
+        }
+
+        input:focus {
+            box-shadow: 0 0 0 2px rgb(200,230,90);
+        }
+
+        /* ===== BUTTON & LINK ===== */
+        a {
+            text-decoration: none; /* Removes the default link underline */
+            display: block;
+            width: 100%;
+        }
+
+        .btn {
+            width: 100%;
+            padding: 12px;
+            border-radius: 8px;
+            border: none;
+            cursor: pointer;    
+            font-weight: 600;
+            background-color: rgb(200,230,90);
+            transition: 0.3s ease;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .btn:hover {
+            background-color: rgb(210,240,90);
+        }
+
+        .link-text {
+            color: #bbbbbb;
+            margin-top: 20px;
+            display: block;
+            font-size: 13px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="card">
+        <h1>Welcome Back</h1>
+        <p class="subtitle">Login to continue</p>
+
+        <input type="text" placeholder="Username">
+        <input type="password" placeholder="Password">
+        
+        <a href="testing5.html">
+            <button class="btn">Login</button>
+        </a>
+
+        <span class="link-text">Don't have an account?</span>
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Fitlife Gym - Classes</title>
+<!--<link rel="stylesheet" href = "style.css">-->
+
+</head>
+<body>
+
+<style>
+
+/* ===== GLOBAL ===== */
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap'); 
+@import url('https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+body{
+    background-color:#000;
+    filter: contrast(1.1);
+    color:white;
+    font-family:"Inter", sans-serif;
+    font-weight: 400;
+}
+/* ===== NAVBAR ===== */
+
+.navbar{
+    display:flex;
+    position: sticky;
+    top: 0;
+    justify-content:space-between;
+    align-items:center;
+    padding:10px 26px;
+    background-color:#110f0fcc;
+    z-index: 1000;
+
+}
+
+.logo{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size:20px;
+    font-weight:bold;
+    margin-left: 8px;
+}.img-logo{
+    width: 52px;
+    height: 52px;
+}
+
+.nav-links a{
+    text-decoration:none;
+    color:#bbbbbb;
+    float: left;
+    font-weight: 400;
+    font-family: 'kanit', sans-serif;
+    padding: 6px 12px;
+    transition: all 0.3s ease;
+    margin-left:11px;
+    font-size:15px;
+    border: 1.6px solid rgba(255,255,255,0.2);
+    border-radius: 9.6px;
+}
+
+.nav-links a:hover{
+    color:white;
+    background-color: rgba(255,255,255,0.2); /* slight highlight */
+    border-radius: 22px;
+    
+}
+
+
+/* ===== HEADER ===== */
+
+.page-header{
+    text-align:center;
+    margin-top:60px;
+}
+
+.page-header h1{
+    font-size:42px;
+    font-family: "kanit", sans-serif;
+    font-weight:400;
+}
+
+.page-header p{
+    color:#bbb;
+    margin-top:10px;
+}
+
+/* ===== TABLE SECTION ===== */
+
+.classes-section{
+    max-width:900px;
+    margin:60px auto;
+}
+
+/* ===== TABLE STYLE ===== */
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background: #1a1a1a;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+caption {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 15px;
+  color: rgb(200,230,90);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+th, td {
+  padding: 16px 20px;
+  text-align: left;
+  border-bottom: 1px solid #333;
+}
+
+th {
+  background-color: #252525;
+  color: #888;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+}
+
+tr:nth-child(even) {
+  background-color: #212121;
+}
+
+tr:hover {
+  background-color: #2a2a2a;
+  transition: 0.2s ease;
+}
+
+tr:last-child td {
+  border-bottom: solid 2px rgb(200,230,90);
+}
+
+td:last-child {
+  font-weight: bold;
+  color: rgb(200,230,90);
+}
+
+/* ===== CLASS LINKS ===== */
+
+td a{
+    color:white;
+    text-decoration:none;
+}
+
+td a:hover{
+    color:rgb(200,230,90);
+}
+
+/* ===== FILTER NOTE ===== */
+
+.filter-note{
+    margin-top:25px;
+    text-align:center;
+    color:#888;
+    font-size:14px;
+}
+.footer{
+    background-color:#222;
+    color:#fff;
+    padding:20px 0;
+    font-family:"Inter", sans-serif;
+    text-align:center;
+}
+
+.footer-container{
+    max-width:1200px;
+    margin:0 auto;
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.footer-section{
+    flex:1;
+    min-width:150px;
+    margin:10px;
+}
+
+.footer-section h4{
+    padding-bottom: 14px;
+}
+
+.footer ul{
+    list-style:none;
+    padding:0;
+    margin:0;
+}
+
+.footer ul li{
+    margin:6px 0;
+}
+
+.footer a{
+    color:#aaaaaa;
+    text-decoration:none;
+    transition:0.27s;
+}
+
+.footer a:hover{
+    color:rgb(210,240,90);
+}
+
+.footer-section a{
+    margin-right:10px;
+}
+
+.copyright{
+    margin-top:20px;
+    font-size:14px;
+}
+.fa-facebook{
+    color: rgb(200,230,90);
+    font-size: x-large;
+    transition: 0.3s ease;
+
+}
+.fa-x-twitter{
+    color: rgb(200,230,90);
+    font-size: x-large;
+    transition: 0.3s ease;
+}
+.fa-instagram{
+    color: rgb(200,230,90);
+    font-size: 23px;
+    transition: 0.37s ease;
+}
+.fa-facebook:hover{
+    color: rgb(204, 255, 0);
+}
+.fa-x-twitter:hover{
+    color: rgb(204, 255, 0);
+}
+.fa-instagram:hover{
+    color: rgb(204, 255, 0);
+}
+
+</style>
+<script src="https://kit.fontawesome.com/d6c36e2854.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <nav class="navbar">
+    <div class="logo">
+        <img src="gym_suggested_logo-removebg-preview.png" alt="FitLife Logo" class="img-logo">
+        <span>FitLife Gym</span>
+    </div>
+    <div class="nav-links">
+        <a href="testing5.html">Home</a>
+        <a href="classes.html">Classes</a>
+        <a href="testing3.html">Membership</a>
+        <a href="trainers.html">Trainers</a>
+        <a href="contact.html">Contact</a>
+    </div>
+</nav>
+
+
+<header class="page-header">
+
+<h1>Our Gym Classes</h1>
+<p>Explore our weekly training sessions and find the perfect class for you.</p>
+
+</header>
+
+<main>
+
+<section class="classes-section">
+
+<table>
+
+<caption>Weekly Class Schedule</caption>
+
+<thead>
+<tr>
+<th>Class Name</th>
+<th>Trainer</th>
+<th>Day</th>
+<th>Time</th>
+<th>Duration</th>
+<th>Difficulty</th>
+</tr>
+</thead>
+
+<tbody>
+
+<tr>
+<td><a href="#">HIIT Training</a></td>
+<td> <b>Trainer Name</b></td>
+<td>Monday</td>
+<td>18:00</td>
+<td>45 min</td>
+<td>Advanced</td>
+</tr>
+
+<tr>
+<td><a href="#">Yoga Flow</a></td>
+<td><b>Trainer Name</b></td>
+<td>Tuesday</td>
+<td>10:00</td>
+<td>60 min</td>
+<td>Beginner</td>
+</tr>
+
+<tr>
+<td><a href="#">Strength Training</a></td>
+<td><b>Trainer Name</b></td>
+<td>Wednesday</td>
+<td>17:30</td>
+<td>60 min</td>
+<td>Intermediate</td>
+</tr>
+
+<tr>
+<td><a href="#">Boxing Conditioning</a></td>
+<td><b>Trainer Name</b></td>
+<td>Thursday</td>
+<td>19:00</td>
+<td>50 min</td>
+<td>Advanced</td>
+</tr>
+
+<tr>
+<td><a href="#">Pilates Core</a></td>
+<td><b>Trainer Name</b></td>
+<td>Friday</td>
+<td>11:00</td>
+<td>45 min</td>
+<td>Beginner</td>
+</tr>
+
+<tr>
+<td><a href="#">Functional Training</a></td>
+<td><b>Trainer Name</b></td>
+<td>Saturday</td>
+<td>16:00</td>
+<td>60 min</td>
+<td>Intermediate</td>
+</tr>
+
+</tbody>
+
+</table>
+
+<div class="filter-note">
+<p>Class filtering by difficulty and trainer will be available soon.</p>
+</div>
+
+</section>
+<footer class="footer">
+  <div class="footer-container">
+
+    <!-- Links Section -->
+    <div class="footer-section">
+      <h4>Quick Links</h4>
+      <ul>
+        <li><a href="home.html">Home</a></li>
+        <li><a href="contact.html">About</a></li>
+        <li><a href="trainers.html">Services</a></li>
+        <li><a href="classes.html">Contact</a></li>
+      </ul>
+    </div>
+
+    <!-- Contact Section -->
+    <div class="footer-section">
+      <h4>Contact</h4>
+      <p>Email: info@example.com</p>
+      <p>Phone: +1 234 567 890</p>
+      <p>Address: 123 Street, City, Country</p>
+    </div>
+
+    <!-- Social Section -->
+    <div class="footer-section">
+
+      <h4>Follow Us</h4>
+            <a href="https://www.x.com">
+                <i class="fa-brands fa-x-twitter"></i>
+            </a>
+        
+            <a href="https://www.instagram.com">
+                <i class="fa-brands fa-instagram"></i>
+            </a>
+        
+            <a href="https://www.facebook.com">
+                <i class="fa-brands fa-facebook"></i>
+            </a>
+        
+            
+    </div>
+
+  </div>
+
+  <p class="copyright">© 2026 FitLife Gym. All rights reserved.</p>
+</footer>
+
+
+</main>
+
+</body>
+</html>

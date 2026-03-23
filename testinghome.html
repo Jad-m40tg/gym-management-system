@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>[brandname] - Home</title>
+<!--<link rel="stylesheet" href="style.css">-->
+</head>
+
+<body>
+    
+    <header>
+        <div class="logo">IRON<span>CORE</span></div>
+    <nav class="navbar">
+        <ul class="nav-links">
+            <li><a href="index.html" class="active">Home</a></li>
+            <li><a href="classes.html">Classes</a></li>
+            <li><a href="membership.html">Membership</a></li>
+            <li><a href="trainers.html">Trainers</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </nav>
+ 
+    </header>
+
+    <style>
+        .main-header {
+    display: flex;
+    justify-content: space-between; /* Pushes logo and nav apart */
+    align-items: center;
+    padding: 0 5%;
+    background-color: #000;
+    height: 80px;
+    position: sticky; /* Requirement for Part 2  */
+    top: 0;
+    z-index: 1000;
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 30px; /* Modern way to space items */
+}
+
+
+    </style>
+</body>
