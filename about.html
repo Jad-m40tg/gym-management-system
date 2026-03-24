@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FitLife Gym - About</title>
+</head>
+<body>
+    <section class="hero-about">
+        <h1>FORGE THE BEST FORM OF YOURSELF</h1>
+        <h4>More than just a gym. A community dedicated to strength, discipline, and results.</h4>
+    </section>
+
+    <section class="container">
+        <div class="our-story">
+            <h2>OUR STORY</h2>
+            <p>At FitLife Gym, we believe fitness is a journey, not a destination. Founded in 2026, our facility was built on the principle of accessibility and high-performance training. We don't just provide equipment; we provide a roadmap to a healthier lifestyle.</p>
+        </div>
+
+        <div class="why-choose-us">
+            <h3>WHY CHOOSE US?</h3>
+            <ul class="features-list">
+                <li><strong>Expert Trainers:</strong> Our certified staff is here to guide your form and push your limits.</li>
+                <li><strong>Modern Equipment:</strong> From heavy lifting to high-tech cardio, we have it all.</li>
+                <li><strong>Flexible Memberships:</strong> Choose the tier that fits your lifestyle, from our Bronze starter pack to the all-access Gold experience.</li>
+            </ul>
+        </div>
+    </section>
+</body>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&family=Kanit:wght@600;800&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #050505; /* Deep matte black */
+    color: #e0e0e0;
+    font-family: "Inter", sans-serif;
+    font-weight: 400;
+    line-height: 1.6;
+}
+
+/* Hero Section */
+.hero-about {
+    height: 40vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background-color: #0a0a0a;
+    background-position: center;
+    border-bottom: 2px solid rgb(200,230,90);
+}
+
+.hero-about h1 {
+    font-family: "Kanit", sans-serif;
+    font-size: 43px;
+    font-weight: 400;
+    letter-spacing: 1px;
+    color: #fff;
+}
+
+/* Content Container */
+.container {
+    max-width: 900px;
+    margin: 50px auto;
+    padding: 0 20px;
+}
+
+.our-story h2, .why-choose-us h3 {
+    font-family: "Kanit", sans-serif;
+    color: rgb(200,230,90); /* Golden tone for headings */
+    margin-bottom: 20px;
+    letter-spacing: 1px;
+    font-weight: 400;
+}
+
+.our-story p {
+    font-size: 16px;
+    margin-bottom: 40px;
+    color: #ccc;
+}
+
+/* List Styling */
+.features-list {
+    list-style: none;
+}
+
+.features-list li {
+    background: #111;
+    margin-bottom: 15px;
+    padding: 20px 20px 20px 30px;
+    border-left: 2px solid rgb(200,230,90);
+    position: relative;
+    overflow: hidden;
+    transition: 0.3s ease;
+    border-radius: 4px;
+}
+.features-list li::before{
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 4px;
+    background: rgb(200,230,90);
+}
+
+.features-list li:hover {
+    background: #1a1a1a;
+    transform: translateX(10px);
+}
+
+.features-list strong {
+    color: #fff;
+    display: block;
+    font-size: 21px;
+    font-family: "kanit", sans-serif;
+    font-weight: 400;
+}
+</style>
+</html>
