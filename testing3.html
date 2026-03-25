@@ -90,15 +90,37 @@ body{
 
 /* Cards */
 .pricing-card {
+    display: flex;
+    flex-direction: column;
     background-color: #141414;
     border-radius: 24px;
     border: 1px solid rgba(255,255,255,0.05);
     padding: 40px 20px;
+    justify-content: center;
+    align-items: center;
+   
+    padding: 2rem;
     text-align: center;
     box-shadow: 0 0 8px rgba(133, 133, 133, 0.795),
      0 10px 30px rgba(0, 0, 0, 0.167);
     transition: 0.3s ease;
     position: relative;
+}
+.pricing-card ul {
+    flex-grow: 1; 
+    display: flex;
+    flex-direction: column;
+    margin: 20px 0;
+    /*list-style: none;*/
+    padding: 0;
+    margin-bottom: 30px;
+    color: #dddddd;
+    font-size: 13px;
+    line-height: 2;
+    flex-wrap: center;
+    justify-content: center;
+    align-items: center;
+    text-align: justify;
 }
 .plan-icon{
     position:absolute;
@@ -129,19 +151,6 @@ body{
     color: rgb(255, 236, 211);
 }
 
-.pricing-card ul {
-    list-style: none;
-    padding: 0;
-    margin-bottom: 30px;
-    color: #dddddd;
-    font-size: 13px;
-    line-height: 2;
-    flex-wrap: center;
-    justify-content: center;
-    align-items: center;
-    text-align: justify;
-}
-
 /* Button */
 .btn{
     border: none;
@@ -149,6 +158,7 @@ body{
     padding: 12px 42px;
     border-radius: 24px;
     font-size: 15px;
+    margin-top: auto;
     font-weight: 700;
     background-color: rgb(200,230,90);
     color: black;
@@ -162,6 +172,7 @@ body{
 button:active {
   transform: translateY(-2px);
 }
+
 /*the registration "generated" page*/
 
 /* ===== REGISTRATION FORM SECTION ===== */
@@ -356,11 +367,13 @@ button:active {
         <img src="alt_bronze-other.png" class="plan-icon" alt="Bronze plan icon">
 
         <h2>Bronze Plan</h2>
-        <div class="price">$12.99 Monthly</div>
+        <div class="price">$19.99 Monthly</div>
         <ul>
-            <li>• Access to all gym equipments.</li>
-            <li>• Have 1 personal training session per week.</li>
-            <li>• Free entry to 1 fitness class per week.</li>
+            <li>Access to weight training area</li>
+            <li>Access to cardio machines</li>
+            <li>Standard locker room access</li>
+            <li>Free drinking water</li>
+            <li>Limited gym hours access</li>
         </ul>
         <a href="register.html">
         <button class="btn">Join Now</button></a>
@@ -370,12 +383,15 @@ button:active {
         <img src="alt_silver.png" class="plan-icon" alt="Silver plan icon">
 
         <h2>Silver Plan</h2>
-        <div class="price">$24.99 Quarterly</div>
-        <ul>
-            <li>• Access to all gym equipments.</li>
-            <li>• Up to 5 personal training sessions per week.</li>
-            <li>• Free entry to 3 fitness class per week.</li>
-        </ul>
+        <div class="price">$49.99 Quarterly</div>
+            <ul>
+                <li>Full access to weight and cardio areas</li>
+                <li>Access during all opening hours</li>
+                <li>2 group classes per week (HIIT, cardio, etc.)</li>
+                <li>Basic personalized workout plan</li>
+                <li>Monthly progress tracking</li>
+                <li>Locker room + showers access</li>
+            </ul>
         <a href="register.html">
         <button class="btn">Join Now</button></a>
     </div>
@@ -384,12 +400,18 @@ button:active {
         <img src="alt_gold.png" class="plan-icon" alt="Gold plan icon">
 
         <h2>Gold Plan</h2>
-        <div class="price">$49.99 Yearly</div>
-        <ul>
-            <li>• Access to all gym equipment.</li>
-            <li>• Up to 5 personal training sessions per week.</li>
-            <li>• Unlimited entry to any fitness class.</li>
-        </ul>
+        <div class="price">$159.99 Yearly</div>
+            <ul>
+                <li>Unlimited access to all gym areas</li>
+                <li>24/7 gym access (if available)</li>
+                <li>Unlimited group classes</li>
+                <li>Personalized workout & nutrition plan</li>
+                <li>1 personal training session per month</li>
+                <li>Priority trainer assistance</li>
+                <li>Access to premium facilities (if available)</li>
+                <li>Guest pass (bring a friend)</li>
+                <li>Discounts on supplements or merchandise</li>
+            </ul>
         <a href="register.html">
         <button class="btn">Join Now</button></a>
     </div>
