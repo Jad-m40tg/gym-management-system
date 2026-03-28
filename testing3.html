@@ -103,16 +103,22 @@ body{
      0 10px 30px rgba(0, 0, 0, 0.167);
     transition: 0.3s ease;
     position: relative;
+    transform: scale(1) translateY(0);
 }
+.pricing-card:hover{
+    transform: translateY(-6px);
+}
+
 .popular-card{
     border: 1.45px solid rgba(200, 230, 90, 0.409); 
-    box-shadow: 0 0 20px rgba(200, 230, 90, 0.217), 
+    box-shadow: 0 0 20px rgba(200, 230, 90, 0.37), 
      0 10px 30px rgba(0, 0, 0, 0.167);
+    transform: scale(1.043);
     z-index: 10; /* Ensures the glow sits on top of neighbors */
 
 }
 .popular-card:hover{
-    transform: scale(1.1) translateY(-6px);  /* "scale" makes it slightly bigger*/
+    transform: scale(1.043) translateY(-6px);  /* "scale" makes it slightly bigger*/
 }
 
 
@@ -163,9 +169,6 @@ body{
     background: rgba(0, 0, 0, 0.135);
     border-radius:50%;
     filter: brightness(1.3) contrast(1.1);
-}
-.pricing-card:hover{
-    transform: translateY(-6px);
 }
 
 /* Card Content */
