@@ -10,7 +10,6 @@
    
     @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
 
-
 body{
     background-color: #000000;
     margin: 0;
@@ -92,7 +91,7 @@ body{
 .pricing-card {
     display: flex;
     flex-direction: column;
-    background-color: #141414;
+    background-color: #101010;
     border-radius: 24px;
     border: 1px solid rgba(255,255,255,0.05);
     padding: 40px 20px;
@@ -105,6 +104,18 @@ body{
     transition: 0.3s ease;
     position: relative;
 }
+.popular-card{
+    border: 1.45px solid rgba(200, 230, 90, 0.409); 
+    box-shadow: 0 0 20px rgba(200, 230, 90, 0.217), 
+     0 10px 30px rgba(0, 0, 0, 0.167);
+    z-index: 10; /* Ensures the glow sits on top of neighbors */
+
+}
+.popular-card:hover{
+    transform: scale(1.1) translateY(-6px);  /* "scale" makes it slightly bigger*/
+}
+
+
 .pricing-card ul {
     flex-grow: 1; 
     display:inline-block;
@@ -120,21 +131,25 @@ body{
     justify-content: center;
     align-items: center;
     text-align: left;
+    width: 100%;
 }
 .pricing-card li{
     padding: 0 0 1px 1px;
+    white-space: nowrap;
+    font-size: 12px;
     margin-right:0 ;
     display: flex;
-    align-items: center;
-    gap: 6px; /*has no effect? why?*/
-    /*margin-bottom: 8px;*/
+    align-items: flex-start; /*for long text warping*/
+    gap: 6px;
+    margin-bottom: 6px;
     text-align: left;
 }
+
 .status-icon{
     width: 16px;
     height: 16px;
     margin-right: 3px;
-    margin-top: 2px;
+    margin-top: 4px;
     flex-shrink: 0;
 
 }
@@ -154,6 +169,8 @@ body{
 }
 
 /* Card Content */
+
+
 .pricing-card h2 {
     color: white;
     font-size: 24px;
@@ -190,8 +207,29 @@ body{
 button:active {
   transform: translateY(-2px);
 }
-
+.most-popular-tag{
+    border: 1.4px rgb(200, 230, 90) solid;
+    background: rgba(200, 230, 90, 0.203);
+    color: rgb(200,230,90);
+    position: absolute;
+    top: -12px;
+    left: 50%;
+    transform: translateX(-50%);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    /*background: rgb(200, 230, 90):*/
+    /*color: black;*/
+    padding: 4px 15px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 500;
+    font-family: kanit, sans-serif;
+    letter-spacing: 1px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+}
 /* ===== REGISTRATION FORM SECTION ===== */
+
+
 .registration-section {
     max-width: 800px;
     margin: 60px auto;
@@ -437,10 +475,11 @@ button:active {
         <button class="btn">Join Now</button></a>
     </div>
 
-    <div class="pricing-card">
+    <div class="pricing-card popular-card">
         <img src="alt_silver.png" class="plan-icon" alt="Silver plan icon">
 
         <h2>Silver Plan</h2>
+        <span class="most-popular-tag">Most Popular</span>
         <div class="price">$49.99 Quarterly</div>
             <ul>
                                 <li>
