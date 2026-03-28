@@ -42,7 +42,16 @@ body{
     justify-content:space-between;
     align-items:center;
     padding:10px 26px;
-    background-color:#110f0fcc;
+    background-color:#110f0f5f;
+    border: 2px rgba(41, 41, 41, 0.795) solid;
+    border-bottom-left-radius: 18px;
+    border-bottom-right-radius: 18px;
+    border-top-right-radius: 18px;
+    border-top-left-radius: 18px;
+    margin-top: 16px;
+    backdrop-filter: blur(6.3px);
+    -webkit-backdrop-filter: blur(6.3px);
+    transform: scale(0.989);
     z-index: 1000;
 
 }
@@ -50,11 +59,13 @@ body{
 .logo{
     display: flex;
     align-items: center;
-    gap: 10px;
-    font-size:20px;
-    font-weight:bold;
-    margin-left: 8px;
-}.img-logo{
+    gap: 4px;
+    font-size: 20px;
+    font-weight: bold;
+    font-family: "Inter", sans-serif;
+    margin-left: 1px;
+}
+.img-logo{
     width: 52px;
     height: 52px;
 }
@@ -66,18 +77,24 @@ body{
     font-weight: 400;
     font-family: 'kanit', sans-serif;
     padding: 6px 12px;
-    transition: all 0.3s ease;
+    transition: all 0.346s ease;
     margin-left:11px;
     font-size:15px;
-    border: 1.6px solid rgba(255,255,255,0.2);
-    border-radius: 9.6px;
+    border: 1.6px solid rgba(255, 255, 255, 0.537);
+    border-radius: 9.8px;
 }
 
 .nav-links a:hover{
-    color:white;
-    background-color: rgba(255,255,255,0.2); /* slight highlight */
+    color:rgb(0, 0, 0);
+    background-color: rgba(255, 255, 255, 0.897); /* slight highlight */
     border-radius: 22px;
     
+}
+.nav-links a:active{
+    color:rgb(0, 0, 0);
+    background-color: rgb(210, 240, 90); /* slight highlight */
+    border-radius: 22px;
+    border: 1.6px solid rgb(0, 0, 0);
 }
 
 /* ===== HERO ===== */
@@ -133,16 +150,18 @@ body{
 }
 
 .feature-card{
-    background-color:#110f0fd9;
+    background-color:#1210102c;
     padding:40px 30px;
-    border: 2px solid rgba(255, 255, 255, 0.107);
+    border: 1.78px solid rgba(255, 255, 255, 0.263);
     border-radius:24px;
     text-align:center;
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
     transition:0.3s ease;
 }
 
 .feature-card:hover{
-    transform:translateY(-3px);
+    transform:translateY(-6px);
     box-shadow:0 10px 30px rgba(0,0,0,0.4);
 }
 

@@ -117,10 +117,31 @@ body{
     z-index: 10; /* Ensures the glow sits on top of neighbors */
 
 }
+
 .popular-card:hover{
     transform: scale(1.043) translateY(-8px);  /* "scale" makes it slightly bigger*/
 }
 
+.most-popular-tag{
+    border: 1.4px rgb(200, 230, 90) solid;
+    background: rgba(200, 230, 90, 0.203);
+    color: rgb(200,230,90);
+    position: absolute;
+    top: -12px;
+    left: 50%;
+    transform: translateX(-50%);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    /*background: rgb(200, 230, 90):*/
+    /*color: black;*/
+    padding: 4px 15px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 500;
+    font-family: kanit, sans-serif;
+    letter-spacing: 1px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+}
 
 .pricing-card ul {
     flex-grow: 1; 
@@ -210,26 +231,7 @@ body{
 button:active {
   transform: translateY(-2px);
 }
-.most-popular-tag{
-    border: 1.4px rgb(200, 230, 90) solid;
-    background: rgba(200, 230, 90, 0.203);
-    color: rgb(200,230,90);
-    position: absolute;
-    top: -12px;
-    left: 50%;
-    transform: translateX(-50%);
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
-    /*background: rgb(200, 230, 90):*/
-    /*color: black;*/
-    padding: 4px 15px;
-    border-radius: 20px;
-    font-size: 12px;
-    font-weight: 500;
-    font-family: kanit, sans-serif;
-    letter-spacing: 1px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
-}
+
 /* ===== REGISTRATION FORM SECTION ===== */
 
 
