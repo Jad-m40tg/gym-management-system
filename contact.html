@@ -113,10 +113,10 @@ Email: example@email.com
     <div class="footer-section">
       <h4>Quick Links</h4>
       <ul>
-        <li><a href="home.html">Home</a></li>
-        <li><a href="contact.html">About</a></li>
+        <li><a href="testing5.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
         <li><a href="trainers.html">Services</a></li>
-        <li><a href="classes.html">Contact</a></li>
+        <li><a href="contact.html">Contact</a></li>
       </ul>
     </div>
 
@@ -130,13 +130,19 @@ Email: example@email.com
 
     <!-- Social Section -->
     <div class="footer-section">
-        <i class="fa-brands fa-x-twitter fa-2xs"></i>
-        <i class="fa-brands fa-instagram fa-2xs"></i>
-        <i class="fa-brands fa-facebook fa-2xs"></i>
+
       <h4>Follow Us</h4>
-      <a href="https://www.facebook.com">Facebook</a>
-      <a href="x.com">Twitter</a>
-      <a href="https://www.instagram.com">Instagram</a>
+            <a href="https://www.x.com">
+                <i class="fa-brands fa-x-twitter"></i>
+            </a>
+        
+            <a href="https://www.instagram.com">
+                <i class="fa-brands fa-instagram"></i>
+            </a>
+        
+            <a href="https://www.facebook.com">
+                <i class="fa-brands fa-facebook"></i>
+            </a>
     </div>
 
   </div>
@@ -160,7 +166,6 @@ Email: example@email.com
 
 body{/*(contact.html)*/
     background-color:#000;
-    filter: contrast(1.1);
     color:white;
     font-family:"Inter", sans-serif;
     font-weight: 400;
@@ -175,7 +180,16 @@ body{/*(contact.html)*/
     justify-content:space-between;
     align-items:center;
     padding:10px 26px;
-    background-color:#110f0fcc;
+    background-color:#110f0f5f;
+    border: 2px rgba(41, 41, 41, 0.795) solid;
+    border-bottom-left-radius: 18px;
+    border-bottom-right-radius: 18px;
+    border-top-right-radius: 18px;
+    border-top-left-radius: 18px;
+    margin-top: 16px;
+    backdrop-filter: blur(6.83px);
+    -webkit-backdrop-filter: blur(6.83px);
+    transform: scale(0.989);
     z-index: 1000;
 
 }
@@ -183,33 +197,96 @@ body{/*(contact.html)*/
 .logo{
     display: flex;
     align-items: center;
-    gap: 10px;
-    font-size:20px;
-    font-weight:bold;
-    margin-left: 8px;
-}.img-logo{
+    gap: 4px;
+    font-size: 20px;
+    font-weight: bold;
+    font-family: "Inter", sans-serif;
+    margin-left: 1px;
+    flex-wrap: 0; /*prevents the logo from shrinking in smaller screens*/
+}
+.img-logo{
     width: 52px;
     height: 52px;
 }
-
+.nav-links{
+    display: flex;
+    align-items: center;
+    gap: 11px;
+}
 .nav-links a{
     text-decoration:none;
-    color:#bbbbbb;
+    color:rgba(255, 255, 255, 0.872);
+    float: left;
     font-weight: 400;
     font-family: 'kanit', sans-serif;
     padding: 6px 12px;
-    transition: all 0.3s ease;
-    margin-left:11px;
+    transition: all 0.346s ease;
     font-size:15px;
-    border: 1.6px solid rgba(255,255,255,0.2);
-    border-radius: 9.6px;
+    border: 1.6px solid rgba(255, 255, 255, 0.694);
+    border-radius: 9.8px;
+    white-space: nowrap; /*prevents txt from transforming into 2 lines*/
 }
 
 .nav-links a:hover{
-    color:white;
-    background-color: rgba(255,255,255,0.2); /* slight highlight */
+    color:rgb(0, 0, 0);
+    background-color: rgba(255, 255, 255, 0.897); /* slight highlight */
     border-radius: 22px;
     
+}
+.nav-links a:active{
+    color:rgb(0, 0, 0);
+    background-color: rgb(210, 240, 90); /* slight highlight */
+    border-radius: 22px;
+    border: 1.6px solid rgb(0, 0, 0);
+}
+
+/*====Mobile responsiveness for navigation bar====*/
+
+@media (max-width: 768px) {
+    /* Stack the Logo Text */
+    .logo span {
+        display: block;
+        font-size: 15px;
+        line-height: 1.1;
+        max-width: 55px; /* Adjust this to force the wrap perfectly */
+    }
+
+    .navbar {
+        display: flex;
+        justify-content: flex-start; 
+        gap: 8px; /* Control that 'orange space' here */
+        padding: 10px 15px;
+    }
+
+    .nav-links {
+        display: flex;
+        flex: 1; /* Takes up all remaining space to the right */
+        overflow-x: auto;
+        white-space: nowrap;
+        scrollbar-width: none;
+        -webkit-overflow-scrolling: touch;
+
+        /* CLEAN RIGHT FADE ONLY */
+        -webkit-mask-image: linear-gradient(to right, 
+            black 0%,      /* Start 100% visible right after the logo */
+            black 65%,     /* Stay visible through most of the bar */
+            rgba(0,0,0,0.6) 80%,
+            transparent 100% /* Smoothly disappear at the very edge */
+        );
+        mask-image: linear-gradient(to right, 
+            black 0%, 
+            black 65%, 
+            rgba(0,0,0,0.6) 80%,
+            transparent 100%
+        );
+
+        padding-right: 60px; /* Space for the last button to scroll out of the fade */
+    }
+
+
+    .nav-links::-webkit-scrollbar {
+        display: none;
+    }
 }
 /*===THE INPUTS===*/
 .contact-container{
@@ -391,7 +468,6 @@ textarea{
 .fa-instagram:hover{
     color: rgb(204, 255, 0);
 }
-
 /*====OPENING HOURS TABLE====*/
 .opening-hours {
   max-width: 400px;
