@@ -211,7 +211,7 @@ body{/*(contact.html)*/
 .nav-links{
     display: flex;
     align-items: center;
-    gap: 11px;
+    gap: 10px;
 }
 .nav-links a{
     text-decoration:none;
@@ -229,13 +229,13 @@ body{/*(contact.html)*/
 
 .nav-links a:hover{
     color:rgb(0, 0, 0);
-    background-color: rgba(255, 255, 255, 0.897); /* slight highlight */
+    background-color: rgba(255, 255, 255, 0.897);
     border-radius: 22px;
     
 }
 .nav-links a:active{
     color:rgb(0, 0, 0);
-    background-color: rgb(210, 240, 90); /* slight highlight */
+    background-color: rgb(210, 240, 90); 
     border-radius: 22px;
     border: 1.6px solid rgb(0, 0, 0);
 }
@@ -283,11 +283,26 @@ body{/*(contact.html)*/
         padding-right: 60px; /* Space for the last button to scroll out of the fade */
     }
 
+    .nav-links a{
+        color:rgb(0, 0, 0);
+        background-color: rgba(255, 255, 255, 0.829);
+        border-radius: 22px;
+        font-weight: 500;
 
+    }
+    .nav-links a:hover{
+        color:rgb(0, 0, 0);
+        background-color: rgb(210, 240, 90); 
+        border-radius: 22px;
+        border: 1.6px solid rgb(0, 0, 0);
+
+    }
     .nav-links::-webkit-scrollbar {
         display: none;
     }
 }
+
+
 /*===THE INPUTS===*/
 .contact-container{
     display:flex;

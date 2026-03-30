@@ -17,6 +17,7 @@ body{
     font-family: "Inter", sans-serif;
 }
 /*navigation bar*/
+
 .navbar{
     display:flex;
     position: sticky;
@@ -44,7 +45,6 @@ body{
     gap: 4px;
     font-size: 20px;
     font-weight: bold;
-    color: white;
     font-family: "Inter", sans-serif;
     margin-left: 1px;
     flex-wrap: 0; /*prevents the logo from shrinking in smaller screens*/
@@ -56,7 +56,7 @@ body{
 .nav-links{
     display: flex;
     align-items: center;
-    gap: 11px;
+    gap: 10px;
 }
 .nav-links a{
     text-decoration:none;
@@ -74,13 +74,13 @@ body{
 
 .nav-links a:hover{
     color:rgb(0, 0, 0);
-    background-color: rgba(255, 255, 255, 0.897); /* slight highlight */
+    background-color: rgba(255, 255, 255, 0.897);
     border-radius: 22px;
     
 }
 .nav-links a:active{
     color:rgb(0, 0, 0);
-    background-color: rgb(210, 240, 90); /* slight highlight */
+    background-color: rgb(210, 240, 90); 
     border-radius: 22px;
     border: 1.6px solid rgb(0, 0, 0);
 }
@@ -91,6 +91,7 @@ body{
     /* Stack the Logo Text */
     .logo span {
         display: block;
+        color: white;
         font-size: 15px;
         line-height: 1.1;
         max-width: 55px; /* Adjust this to force the wrap perfectly */
@@ -128,11 +129,25 @@ body{
         padding-right: 60px; /* Space for the last button to scroll out of the fade */
     }
 
+    .nav-links a{
+        color:rgb(0, 0, 0);
+        background-color: rgba(255, 255, 255, 0.829);
+        border-radius: 22px;
+        font-weight: 500;
 
+    }
+    .nav-links a:hover{
+        color:rgb(0, 0, 0);
+        background-color: rgb(210, 240, 90); 
+        border-radius: 22px;
+        border: 1.6px solid rgb(0, 0, 0);
+
+    }
     .nav-links::-webkit-scrollbar {
         display: none;
     }
 }
+
 
 /* Title */
 .main-title{
