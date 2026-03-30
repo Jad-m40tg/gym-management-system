@@ -18,7 +18,7 @@
         <a href="testing5.html">Home</a>
         <a href="classes.html">Classes</a>
         <a href="testing3.html">Membership</a>
-        <a href="trainers.html">Trainers</a>
+        <a href="trainers.html" class="active-page">Trainers</a>
         <a href="contact.html">Contact</a>
         </div>
     </nav>
@@ -246,15 +246,19 @@
 .trainers_title h3 {
     font-family: 'kanit', sans-serif;
     font-weight: 400;
-    padding: 60px 40px;
+    padding: 60px 30px 30px;
     text-align: center;
-    font-size: 52px;
+    font-size: clamp(38px, 7vw, 52px);
 }
 .trainers_title p {
     font-family: 'inter', sans-serif;
-    font-weight: 300;
+    font-weight: 400;
     text-align: center;
     font-size: 16px;
+    padding: 16px;
+    letter-spacing: 1.2;
+    line-height: 26px;
+
 }
 
 
@@ -298,7 +302,7 @@ body{ /*(trainers.html)*/
     font-weight: bold;
     font-family: "Inter", sans-serif;
     margin-left: 1px;
-    flex-wrap: 0; /*prevents the logo from shrinking in smaller screens*/
+    flex-wrap: nowrap; /*prevents the logo from shrinking in smaller screens*/ /*prevents the logo from shrinking in smaller screens*/
 }
 .img-logo{
     width: 52px;
@@ -334,6 +338,21 @@ body{ /*(trainers.html)*/
     background-color: rgb(210, 240, 90); 
     border-radius: 22px;
     border: 1.6px solid rgb(0, 0, 0);
+}
+/* current active page setting*/
+.nav-links a .active-page {
+    color:rgb(0, 0, 0);
+    background-color: rgba(210, 240, 90, 0.925); 
+    border-radius: 22px;
+    border: 1.6px solid rgb(0, 0, 0);
+}
+@media (max-width:768px){
+    .nav-links a.active-page {
+    color:rgb(0, 0, 0);
+    background-color: rgba(210, 240, 90, 0.925); 
+    border-radius: 22px;
+    border: 1.6px solid rgb(0, 0, 0);
+    }
 }
 
 /*====Mobile responsiveness for navigation bar====*/

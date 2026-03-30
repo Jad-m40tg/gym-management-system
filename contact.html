@@ -66,7 +66,7 @@ Phone: +1 123456789<br>
 Email: example@email.com
 </address>
 
-<iframe class="map" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d387196.0882667774!2d-74.30985121435178!3d40.69667069829709!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c24fa5d33f083b%3A0xc80b8f06e177fe62!2sNew%20York%2C%20NY%2C%20USA!5e0!3m2!1sen!2sdz!4v1773433361913!5m2!1sen!2sdz" width="480" height="270" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+<iframe class="map" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d387196.0882667774!2d-74.30985121435178!3d40.69667069829709!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c24fa5d33f083b%3A0xc80b8f06e177fe62!2sNew%20York%2C%20NY%2C%20USA!5e0!3m2!1sen!2sdz!4v1773433361913!5m2!1sen!2sdz" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
 
 </div>
 
@@ -116,7 +116,7 @@ Email: example@email.com
         <li><a href="testing5.html">Home</a></li>
         <li><a href="about.html">About</a></li>
         <li><a href="trainers.html">Services</a></li>
-        <li><a href="contact.html">Contact</a></li>
+        <li><a href="contact.html" class="active-page">Contact</a></li>
       </ul>
     </div>
 
@@ -169,6 +169,7 @@ body{/*(contact.html)*/
     color:white;
     font-family:"Inter", sans-serif;
     font-weight: 400;
+    overflow-x: hidden;
 }
 
 /* ===== NAVBAR ===== */
@@ -202,7 +203,7 @@ body{/*(contact.html)*/
     font-weight: bold;
     font-family: "Inter", sans-serif;
     margin-left: 1px;
-    flex-wrap: 0; /*prevents the logo from shrinking in smaller screens*/
+    flex-wrap: nowrap; /*prevents the logo from shrinking in smaller screens*/ /*prevents the logo from shrinking in smaller screens*/
 }
 .img-logo{
     width: 52px;
@@ -226,18 +227,20 @@ body{/*(contact.html)*/
     border-radius: 9.8px;
     white-space: nowrap; /*prevents txt from transforming into 2 lines*/
 }
-
-.nav-links a:hover{
+/* current active page setting*/
+.nav-links a.active-page {
     color:rgb(0, 0, 0);
-    background-color: rgba(255, 255, 255, 0.897);
-    border-radius: 22px;
-    
-}
-.nav-links a:active{
-    color:rgb(0, 0, 0);
-    background-color: rgb(210, 240, 90); 
+    background-color: rgba(210, 240, 90, 0.925); 
     border-radius: 22px;
     border: 1.6px solid rgb(0, 0, 0);
+}
+@media (max-width:768px){
+    .nav-links a.active-page {
+    color:rgb(0, 0, 0);
+    background-color: rgba(210, 240, 90, 0.925); 
+    border-radius: 22px;
+    border: 1.6px solid rgb(0, 0, 0);
+    }
 }
 
 /*====Mobile responsiveness for navigation bar====*/
@@ -313,12 +316,13 @@ body{/*(contact.html)*/
 }
 
 .contact_page_header h1 {
-    padding: 32px;
+    padding: 20px 15px;
+    font-size: clamp(32px, 5vw, 42px);
     font-family: 'kanit', sans-serif ;
     color: #fff;
     text-align: center;
     font-weight: 400;
-    font-size: 42px;
+    
 }
 .contact_page_header p {
     font-family: 'inter', sans-serif ;
@@ -328,18 +332,24 @@ body{/*(contact.html)*/
     font-size: 14px;
 }
 .contact-form{
-    width: 300px;
+    width: 70%;
+    max-width: 400px;
 }
 form{
     display: flex;
     flex-direction: column;
-    align-items: left;
+    align-items: flex-start;
     gap: 8px;
-    
 
 }
-input{
+label{
+    text-align: left;
     width: 100%;
+    font-family: 'Kanit', sans-serif;
+    font-weight: 400;
+}
+input{
+    width: 70%;
     padding: 10px;
     margin-bottom: 16px;
     border-radius: 8px;
@@ -356,7 +366,9 @@ input:focus{
 button{
     background-color:rgb(200,230,90);
     color:black;
+    width: 100%;
     padding:10px 24px;
+    margin-top: 23px;
     border: solid 2px #333;
     border-radius:14px;
     font-weight:600;
@@ -371,12 +383,14 @@ button{
 }
 
 .map{
+    width: 100%;
+    height: 360px;
     margin-top:15px;
     border-radius:10px;
     border:none;
 }
 textarea{
-    width:100%;
+    width:85%;
     padding:10px;
     border-radius:8px;
     border:none;
@@ -386,7 +400,7 @@ textarea{
     font-family: "Inter", sans-serif;
     font-size:14px;
     min-height:70px;
-    resize: both;
+    resize: vertical;
 }
 
 /*#name{
@@ -507,6 +521,7 @@ caption {
   color: rgb(200,230,90); /* Matches your neon accent from the form */
   text-transform: uppercase;
   letter-spacing: 1px;
+  text-align: center;
 }
 
 th, td {
@@ -543,6 +558,24 @@ td:last-child {
   font-weight: bold;
   color: rgb(200,230,90);
   text-align: left; 
+}
+/*===RESPONSIVE TWEAKS===*/
+
+@media (max-width: 768px) {
+
+    .contact-container {
+        flex-direction: column; 
+        gap: 30px;
+        align-items: center;
+        padding: 0 15px;
+    }
+
+    .contact-form,.gym-info {
+        width: 100%;
+        max-width: 500px;
+    }
+
+
 }
 
 </style>

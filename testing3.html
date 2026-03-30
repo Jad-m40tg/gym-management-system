@@ -16,6 +16,7 @@ body{
     padding: 0;
     font-family: "Inter", sans-serif;
 }
+
 /*navigation bar*/
 
 .navbar{
@@ -47,7 +48,7 @@ body{
     font-weight: bold;
     font-family: "Inter", sans-serif;
     margin-left: 1px;
-    flex-wrap: 0; /*prevents the logo from shrinking in smaller screens*/
+    flex-wrap: nowrap; /*prevents the logo from shrinking in smaller screens*/ /*prevents the logo from shrinking in smaller screens*/
 }
 .img-logo{
     width: 52px;
@@ -70,6 +71,21 @@ body{
     border: 1.6px solid rgba(255, 255, 255, 0.694);
     border-radius: 9.8px;
     white-space: nowrap; /*prevents txt from transforming into 2 lines*/
+}
+/* current active page setting*/
+.nav-links a.active-page {
+    color:rgb(0, 0, 0);
+    background-color: rgba(210, 240, 90, 0.925); 
+    border-radius: 22px;
+    border: 1.6px solid rgb(0, 0, 0);
+}
+@media (max-width:768px){
+    .nav-links a.active-page {
+    color:rgb(0, 0, 0);
+    background-color: rgba(210, 240, 90, 0.925); 
+    border-radius: 22px;
+    border: 1.6px solid rgb(0, 0, 0);
+    }
 }
 
 .nav-links a:hover{
@@ -153,7 +169,7 @@ body{
 .main-title{
     text-align: center;
     color: white;
-    font-size: 42px;
+    font-size: clamp(24px, 5vw, 42px);
     margin-top: 50px;
     font-weight:400;
     font-family: 'Kanit', sans-serif;
@@ -315,7 +331,7 @@ body{
     background-color: rgb(210, 240, 90);
 }
 
-button:active {
+.btn:active {
   transform: translateY(-2px);
 }
 
@@ -329,12 +345,14 @@ button:active {
     padding: 40px;
     border-radius: 24px;
     border: 1px solid rgba(255,255,255,0.05);
+    box-sizing: border-box;
 }
 .registration-section h2{
     color: white;
     text-align: center;
-    font-family: 'Kanit';
+    font-family: 'Kanit', sans-serif;
     font-weight: 400;
+    margin-bottom: 8px;
 }
 .registration-section p{
     color: #888;
@@ -366,13 +384,14 @@ button:active {
 }
 
 .form-group input, .form-group select {
-    padding: 12px;
+    padding: 12px 16px;
     border-radius: 23px;
     border: 1.7px solid #3333337d;
     background-color: #000;
     color: white;
     outline: none;
     transition: 0.3s;
+    font-size: 14px;
 }
 
 .form-group input:focus {
@@ -423,6 +442,7 @@ button:active {
     border-top: 1px solid #333;
     padding-top: 20px;
     color: #a4a4a4;
+    text-align: center;
 }
 
 .payment-icons {
@@ -442,6 +462,42 @@ button:active {
     font-size: 13px;
     margin: 10px 0;
 }
+/* ================= RESPONSIVE ================= */
+@media (max-width: 768px) {
+    .registration-section {
+        margin: 30px 15px;
+        padding: 28px 20px;
+        border-radius: 18px;
+    }
+
+    .form-grid {
+        grid-template-columns: 1fr;           /* Stack fields vertically */
+        gap: 18px;
+    }
+
+    .plan-selector,
+    .terms-group,
+    .btn {
+        grid-column: span 1;
+    }
+
+    .radio-group {
+        flex-direction: column;               /* Radio buttons stack on mobile */
+        gap: 10px;
+    }
+
+    .radio-item {
+        padding: 16px;
+    }
+}
+
+@media (max-width: 480px) {
+    .registration-section {
+        padding: 24px 18px;
+    }
+}
+
+
 /*====FOOTER====*/
 .footer{
     background-color:#222;
@@ -535,7 +591,7 @@ button:active {
     <div class="nav-links">
         <a href="testing5.html">Home</a>
         <a href="classes.html">Classes</a>
-        <a href="testing3.html">Membership</a>
+        <a href="testing3.html" class="active-page">Membership</a>
         <a href="trainers.html">Trainers</a>
         <a href="contact.html">Contact</a>
     </div>

@@ -31,6 +31,7 @@ body{
     color:white;
     font-family:"Inter", sans-serif;
     font-weight: 400;
+    overflow-x: hidden;/*to prevent side scrolling*/
 }
 
 /* ===== NAVBAR ===== */
@@ -51,7 +52,7 @@ body{
     margin-top: 16px;
     backdrop-filter: blur(6.83px);
     -webkit-backdrop-filter: blur(6.83px);
-    transform: scale(0.989);
+    transform: scale(0.989); /*can break "sticky"*/
     z-index: 1000;
 
 }
@@ -64,7 +65,7 @@ body{
     font-weight: bold;
     font-family: "Inter", sans-serif;
     margin-left: 1px;
-    flex-wrap: 0; /*prevents the logo from shrinking in smaller screens*/
+    flex-wrap: nowrap; /*prevents the logo from shrinking in smaller screens*/
 }
 .img-logo{
     width: 52px;
@@ -87,6 +88,22 @@ body{
     border: 1.6px solid rgba(255, 255, 255, 0.694);
     border-radius: 9.8px;
     white-space: nowrap; /*prevents txt from transforming into 2 lines*/
+}
+/* current active page setting*/
+/* current active page setting*/
+.nav-links a.active-page {
+    color:rgb(0, 0, 0);
+    background-color: rgba(210, 240, 90, 0.925); 
+    border-radius: 22px;
+    border: 1.6px solid rgb(0, 0, 0);
+}
+@media (max-width:768px){
+    .nav-links a.active-page {
+    color:rgb(0, 0, 0);
+    background-color: rgba(210, 240, 90, 0.925); 
+    border-radius: 22px;
+    border: 1.6px solid rgb(0, 0, 0);
+    }
 }
 
 .nav-links a:hover{
@@ -123,7 +140,7 @@ body{
     .nav-links {
         display: flex;
         flex: 1; /* Takes up all remaining space to the right */
-        overflow-x: auto;
+        overflow-x: auto; /*can cause side scrolling in pages*/
         white-space: nowrap;
         scrollbar-width: none;
         -webkit-overflow-scrolling: touch;
@@ -171,16 +188,19 @@ body{
 }
 
 .hero h1{
-    font-size:54px;
+    font-size:clamp(38px, 6vw, 52px);
     margin-bottom:20px;
     font-family: 'kanit',sans-serif;
-    font-weight: 400;
+    font-weight: 410;
 }
 
 .hero p{
     color:#aaaaaa;
     margin-bottom:40px;
     font-size:16px;
+    font-family: "Inter", sans-serif;
+    font-weight: 400;
+    
 }
 
 /* ===== BUTTON ===== */
@@ -365,7 +385,7 @@ i{
         <span>FitLife Gym</span>
     </div>
     <div class="nav-links">
-        <a href="testing5.html">Home</a>
+        <a href="testing5.html" class="active-page">Home</a>
         <a href="classes.html">Classes</a>
         <a href="testing3.html">Membership</a>
         <a href="trainers.html">Trainers</a>
