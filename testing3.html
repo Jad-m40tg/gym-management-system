@@ -55,6 +55,17 @@ body{
     width: 52px;
     height: 52px;
 }
+.logo-link {
+    text-decoration: none; /* Removes underline */
+    color: inherit;        /* Keeps your white text color */
+    display: flex;         /* Maintains the flex alignment */
+    align-items: center;
+}
+
+.logo-link:hover {
+    opacity: 0.8;          /* Optional: gives a slight "clickable" feel on hover */
+    transition: 0.3s;
+}
 .nav-links{
     display: flex;
     align-items: center;
@@ -113,7 +124,17 @@ body{
         line-height: 1.1;
         max-width: 55px; /* Adjust this to force the wrap perfectly */
     }
+    .logo-link {
+        text-decoration: none; /* Removes underline */
+        color: inherit;        /* Keeps your white text color */
+        display: flex;         /* Maintains the flex alignment */
+        align-items: center;
+    }
 
+    .logo-link:hover {
+        opacity: 0.8;          /* Optional: gives a slight "clickable" feel on hover */
+        transition: 0.3s;
+    }
     .navbar {
         display: flex;
         justify-content: flex-start; 
@@ -456,14 +477,70 @@ body{
 
 .terms-group {
     grid-column: span 2;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    color: #f1f0f0;
-    font-size: 13px;
     margin: 10px 0;
 }
-/* ================= RESPONSIVE ================= */
+
+/* Container to handle the layout */
+.custom-checkbox {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    cursor: pointer;
+    color: #f1f0f0;
+    font-size: 13px;
+    user-select: none;
+}
+
+/* Hide the actual ugly checkbox */
+.custom-checkbox input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+}
+
+/* Create the custom glassmorphism box */
+.checkbox-box {
+    height: 20px;
+    width: 20px;
+    background-color: rgba(255, 255, 255, 0.05);
+    border: 1.5px solid rgba(255, 255, 255, 0.2);
+    border-radius: 12px;
+    position: relative;
+    transition: all 0.2s ease;
+    flex-shrink: 0; /* Prevents the box from squishing on small screens */
+}
+
+/* Hover state */
+.custom-checkbox:hover .checkbox-box {
+    border-color: rgba(210, 240, 90, 0.5);
+}
+
+/* When Checked: Change background to your Lime Green */
+.custom-checkbox input:checked ~ .checkbox-box {
+    background-color: rgb(210, 240, 90);
+    border-color: rgba(0, 0, 0, 0.267);
+}
+
+/* Create the checkmark (the "L" shape) */
+.checkbox-box::after {
+    content: "";
+    position: absolute;
+    display: none;
+    left: 6px;
+    top: 2px;
+    width: 5px;
+    height: 10px;
+    border: solid #000; /* Black checkmark for contrast */
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg);
+}
+
+/* Show checkmark when input is checked */
+.custom-checkbox input:checked ~ .checkbox-box::after {
+    display: block;
+}/* ================= RESPONSIVE ================= */
 @media (max-width: 768px) {
     .registration-section {
         margin: 30px 15px;
@@ -585,10 +662,12 @@ body{
 <script src="https://kit.fontawesome.com/d6c36e2854.js" crossorigin="anonymous"></script>
 <body>
     <nav class="navbar">
-    <div class="logo">
-        <img src="gym_suggested_logo-removebg-preview.png" alt="FitLife Logo" class="img-logo">
-        <span>FitLife Gym</span>
-    </div>
+    <a href="testingnewhome.html" class="logo-link"> 
+        <div class="logo">
+            <img src="gym_suggested_logo-removebg-preview.png" alt="FitLife Logo" class="img-logo">
+            <span>FitLife Gym</span>
+        </div>
+    </a>
     <div class="nav-links">
         <a href="testing5.html">Home</a>
         <a href="classes.html">Classes</a>
@@ -780,8 +859,11 @@ body{
         </div>
 
         <div class="terms-group">
-            <input type="checkbox" required>
-            <span>I agree to the Terms of Service and Privacy Policy</span>
+            <label class="custom-checkbox">
+                <input type="checkbox" required>
+                <span class="checkbox-box"></span>
+                <span class="terms-text">I agree to the Terms of Service and Privacy Policy</span>
+            </label>
         </div>
 
         <button type="submit" class="btn">Complete Registration</button>

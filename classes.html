@@ -61,6 +61,17 @@ body{
     width: 52px;
     height: 52px;
 }
+.logo-link {
+    text-decoration: none; /* Removes underline */
+    color: inherit;        /* Keeps your white text color */
+    display: flex;         /* Maintains the flex alignment */
+    align-items: center;
+}
+
+.logo-link:hover {
+    opacity: 0.8;          /* Optional: gives a slight "clickable" feel on hover */
+    transition: 0.3s;
+}
 .nav-links{
     display: flex;
     align-items: center;
@@ -119,6 +130,17 @@ body{
         font-size: 15px;
         line-height: 1.1;
         max-width: 55px; /* Adjust this to force the wrap perfectly */
+    }
+    .logo-link {
+        text-decoration: none; /* Removes underline */
+        color: inherit;        /* Keeps your white text color */
+        display: flex;         /* Maintains the flex alignment */
+        align-items: center;
+    }
+
+    .logo-link:hover {
+        opacity: 0.8;          /* Optional: gives a slight "clickable" feel on hover */
+        transition: 0.3s;
     }
 
     .navbar {
@@ -373,10 +395,12 @@ td a:hover{
 </head>
 <body>
     <nav class="navbar">
-    <div class="logo">
-        <img src="gym_suggested_logo-removebg-preview.png" alt="FitLife Logo" class="img-logo">
-        <span>FitLife Gym</span>
-    </div>
+    <a href="testingnewhome.html" class="logo-link"> 
+        <div class="logo">
+            <img src="gym_suggested_logo-removebg-preview.png" alt="FitLife Logo" class="img-logo">
+            <span>FitLife Gym</span>
+        </div>
+    </a>
     <div class="nav-links">
         <a href="testing5.html">Home</a>
         <a href="classes.html" class="active-page">Classes</a>

@@ -60,6 +60,17 @@ body{
     width: 52px;
     height: 52px;
 }
+.logo-link {
+    text-decoration: none; /* Removes underline */
+    color: inherit;        /* Keeps your white text color */
+    display: flex;         /* Maintains the flex alignment */
+    align-items: center;
+}
+
+.logo-link:hover {
+    opacity: 0.8;          /* Optional: gives a slight "clickable" feel on hover */
+    transition: 0.3s;
+}
 .nav-links{
     display: flex;
     align-items: center;
@@ -111,6 +122,17 @@ body{
         font-size: 15px;
         line-height: 1.1;
         max-width: 55px; 
+    }
+    .logo-link {
+        text-decoration: none; /* Removes underline */
+        color: inherit;        /* Keeps your white text color */
+        display: flex;         /* Maintains the flex alignment */
+        align-items: center;
+    }
+
+    .logo-link:hover {
+        opacity: 0.8;          /* Optional: gives a slight "clickable" feel on hover */
+        transition: 0.3s;
     }
     .navbar {
         display: flex;
@@ -189,17 +211,17 @@ body{
     to { opacity: 1; transform: translateY(0); }
 }
 
-/* ===== STATS BAR (NEW) ===== */
+/* ===== STATS BAR ===== */
 .stats-bar {
     display: flex;
     justify-content: center;
     gap: 30px;
-    padding: 20px;
-    background-color: rgba(16, 16, 16, 0.6);
+    padding: 32px;
+    background-color: rgba(16, 16, 16, 0.171);
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
-    border-top: 1px solid rgba(255, 255, 255, 0.05);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    border-top: 1px solid rgba(255, 255, 255, 0.135);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.135);
     color: #c4c4c4;
     font-family: 'kanit', sans-serif;
     font-size: 16px;
@@ -210,10 +232,10 @@ body{
     font-weight: 600;
 }
 .stats-divider {
-    color: rgba(255, 255, 255, 0.2);
+    color: rgba(255, 255, 255, 0.272);
 }
 
-/* ===== SLOGAN STRIP (NEW) ===== */
+/* ===== SLOGAN STRIP ===== */
 .slogan-wrapper {
     overflow: hidden;
     background-color: rgb(210, 240, 90);
@@ -222,7 +244,6 @@ body{
     white-space: nowrap;
     font-family: 'kanit', sans-serif;
     font-weight: 600;
-    text-transform: uppercase;
     letter-spacing: 2px;
     font-size: 14px;
 }
@@ -324,7 +345,7 @@ i{
 }
 
 .cta h2{
-    font-size:clamp(24px,5vh,32px);
+    font-size:clamp(20px,5vh,32px);
     margin-bottom:20px;
 }
 
@@ -449,10 +470,12 @@ i{
 <body>
 
 <nav class="navbar">
-    <div class="logo">
-        <img src="gym_suggested_logo-removebg-preview.png" alt="FitLife Logo" class="img-logo">
-        <span>FitLife Gym</span>
-    </div>
+    <a href="testingnewhome.html" class="logo-link"> 
+        <div class="logo">
+            <img src="gym_suggested_logo-removebg-preview.png" alt="FitLife Logo" class="img-logo">
+            <span>FitLife Gym</span>
+        </div>
+    </a>
     <div class="nav-links">
         <a href="testing5.html" class="active-page">Home</a>
         <a href="classes.html">Classes</a>
@@ -471,27 +494,22 @@ i{
 </section>
 
 <div class="stats-bar">
-    <span><strong>500+</strong>Members</span> <span class="stats-divider"> | </span>
-    <span><strong>20+</strong>Classes</span> <span class="stats-divider"> |</span>
-    <span><strong>15</strong>Expert Trainers</span>
+    <span><strong>500+ </strong>Members</span> <span class="stats-divider"> | </span>
+    <span><strong>20+ </strong>Classes</span> <span class="stats-divider"> |</span>
+    <span><strong>15 </strong>Expert Trainers</span>
 </div>
 
 <div class="slogan-wrapper">
     <div class="slogan-track">
-        <span>Stronger. Sharper. FitLife. &nbsp; | &nbsp; </span>
-        <span>Stronger. Sharper. FitLife. &nbsp; | &nbsp; </span>
-        <span>Stronger. Sharper. FitLife. &nbsp; | &nbsp; </span>
-        <span>Stronger. Sharper. FitLife. &nbsp; | &nbsp; </span>
-        <span>Stronger. Sharper. FitLife. &nbsp; | &nbsp; </span>
-        <span>Stronger. Sharper. FitLife. &nbsp; | &nbsp; </span>
-        <span>Stronger. Sharper. FitLife. &nbsp; | &nbsp; </span>
-        <span>Stronger. Sharper. FitLife. &nbsp; | &nbsp; </span>
+        <span>GET STRONGER & SHARPER. FORGE YOUR PRIME. ASCEND BEYOND LIMITS. WHERE FLMAE ALIGHTENTH. &nbsp; | &nbsp; </span>
+        <span>GET STRONGER & SHARPER. FORGE YOUR PRIME. ASCEND BEYOND LIMITS. WHERE FLMAE ALIGHTENTH. &nbsp; | &nbsp; </span>
+        <span>GET STRONGER & SHARPER. FORGE YOUR PRIME. ASCEND BEYOND LIMITS. WHERE FLMAE ALIGHTENTH. &nbsp; | &nbsp; </span>
     </div>
 </div>
 
 <section class="features">
     <div class="feature-card">
-        <img src="dumbell-neon-green.png" class="dumbell-icon" alt="dumbell icon" height="42" width="62">
+        <img src="dumbell-neon-green.png" class="dumbell-icon" alt="dumbell icon" height="52" width="72">
         <h3>Modern Equipment</h3>
         <p>Train with the latest machines designed for performance and safety.</p>
     </div>
@@ -529,7 +547,7 @@ i{
                 <div class="trainer-preview">
                     <i class="fa-solid fa-user-ninja"></i>
                     <strong>Head Coach: Hitler</strong><br>
-                    <small>Specialty: Strength & HIIT</small>
+                    <small>Specialty: Strength & Racism</small>
                 </div>
             </a>
         </li>
