@@ -74,7 +74,7 @@ contactForm.addEventListener('submit', (event) => {
 
 const membershipForm = document.getElementById('membership-form');
 const fullNameInput = document.getElementById('full-name');
-const emailInput = document.getElementById('email');
+const email_Input = document.getElementById('email');
 const phoneInput = document.getElementById('phone');
 const dobInput = document.getElementById('dob');
 const planRadios = document.querySelectorAll('input[name="plan"]');
