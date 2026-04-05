@@ -18,9 +18,12 @@ const isValidEmail = (email_input) =>{
 registration_form.addEventListener('submit', (e) => {
     e.preventDefault();//to stop the page from reloading instantly
     let isregvalid = true;
-    if(name_input.value.trim()<3 ){
+    if(name_input.value.trim() < 3 ){
         console.error('name must be at least 3 characters');
         isregvalid=false;
     }
-    
-}) 
+    if(!isValidEmail(email_input.value.trim())){
+        console.error('Enter a valid email address');
+        isregvalid=false;
+    }
+}); 
