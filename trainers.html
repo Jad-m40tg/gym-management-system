@@ -10,10 +10,12 @@
 <script src="https://kit.fontawesome.com/d6c36e2854.js" crossorigin="anonymous"></script>
 <body>
     <nav class="navbar">
-    <div class="logo">
-        <img src="gym_suggested_logo-removebg-preview.png" alt="FitLife Logo" class="img-logo">
-        <span>FitLife Gym</span>
-    </div>
+    <a href="testingnewhome.html" class="logo-link"> 
+        <div class="logo">
+            <img src="gym_suggested_logo-removebg-preview.png" alt="FitLife Logo" class="img-logo">
+            <span>FitLife Gym</span>
+        </div>
+    </a>
         <div class="nav-links">
         <a href="testing5.html">Home</a>
         <a href="classes.html">Classes</a>
@@ -307,6 +309,17 @@ body{ /*(trainers.html)*/
 .img-logo{
     width: 52px;
     height: 52px;
+}
+.logo-link {
+    text-decoration: none; /* Removes underline */
+    color: inherit;        /* Keeps your white text color */
+    display: flex;         /* Maintains the flex alignment */
+    align-items: center;
+}
+
+.logo-link:hover {
+    opacity: 0.8;          /* Optional: gives a slight "clickable" feel on hover */
+    transition: 0.3s;
 }
 .nav-links{
     display: flex;
