@@ -2,14 +2,11 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Fitlife Gym - Contact</title>
-<!--<link rel="stylesheet" href="style.css">-->    
-
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Fitlife Gym - Contact</title>
 </head>
 <body>
     
-
 <nav class="navbar">
     <a href="testingnewhome.html" class="logo-link"> 
         <div class="logo">
@@ -27,82 +24,66 @@
 </nav>
 
 <header class="contact_page_header">
-<h1>Contact Us</h1>
-<p>We would love to hear from you.</p>
+    <h1>Contact Us</h1>
+    <p>We would love to hear from you.</p>
 </header>
 
 <main>
 <section class="contact-section">
 
-<div class="contact-container">
+    <div class="contact-container">
+        
+        <div class="contact-form">
+            <form>
+                <label for="name">Name</label>
+                <input type="text" id="name">
 
-<div class="contact-form">
+                <label for="email">Email</label>
+                <input type="email" id="email">
 
-<form>
+                <label for="subject">Subject</label>
+                <input type="text" id="subject">
 
-<label for="name">Name</label>
-<input type="text" id="name">
+                <label for="message">Message</label>
+                <textarea id="message"></textarea>
 
-<label for="email">Email</label>
-<input type="email" id="email">
+                <button type="submit">Send</button>
+            </form>
+        </div>
 
-<label for="subject">Subject</label>
-<input type="text" id="subject">
+        <div class="gym-info">
+            <address>
+                Gym Street 123<br>
+                City, Country<br>
+                Phone: +1 123456789<br>
+                Email: example@email.com
+            </address>
+            <iframe class="map" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d387196.0882667774!2d-74.30985121435178!3d40.69667069829709!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c24fa5d33f083b%3A0xc80b8f06e177fe62!2sNew%20York%2C%20NY%2C%20USA!5e0!3m2!1sen!2sdz!4v1773433361913!5m2!1sen!2sdz" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
 
-<label for="message">Message</label>
-<textarea id="message"></textarea>
+    </div>
 
-<button type="submit">Send</button>
-
-</form>
-
-</div>
-
-
-<div class="gym-info">
-
-<address>
-Gym Street 123<br>
-City, Country<br>
-Phone: +1 123456789<br>
-Email: example@email.com
-</address>
-
-<iframe class="map" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d387196.0882667774!2d-74.30985121435178!3d40.69667069829709!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c24fa5d33f083b%3A0xc80b8f06e177fe62!2sNew%20York%2C%20NY%2C%20USA!5e0!3m2!1sen!2sdz!4v1773433361913!5m2!1sen!2sdz" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-
-</div>
-
-</div>
-
-
-<section class="opening-hours">
-
-<table>
-
-<caption>Opening Hours</caption>
-
-<thead>
-<tr>
-<th>Day</th>
-<th>Hours</th>
-</tr>
-</thead>
-
-<tbody>
-<tr>
-<td>Monday</td>
-<td>8:00 - 22:00</td>
-</tr>
-
-<tr>
-<td>Sunday</td>
-<td>10:00 - 18:00</td>
-</tr>
-</tbody>
-
-</table>
-
-</section>
+    <section class="opening-hours">
+        <table>
+            <caption>Opening Hours</caption>
+            <thead>
+                <tr>
+                    <th>Day</th>
+                    <th>Hours</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Monday</td>
+                    <td>8:00 - 22:00</td>
+                </tr>
+                <tr>
+                    <td>Sunday</td>
+                    <td>10:00 - 18:00</td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
 
 </section>
 
@@ -110,8 +91,6 @@ Email: example@email.com
 
 <footer class="footer">
   <div class="footer-container">
-
-    <!-- Links Section -->
     <div class="footer-section">
       <h4>Quick Links</h4>
       <ul>
@@ -123,7 +102,6 @@ Email: example@email.com
       </ul>
     </div>
 
-    <!-- Contact Section -->
     <div class="footer-section">
       <h4>Contact</h4>
       <p>Email: info@example.com</p>
@@ -131,25 +109,19 @@ Email: example@email.com
       <p>Address: 123 Street, City, Country</p>
     </div>
 
-    <!-- Social Section -->
     <div class="footer-section">
-
       <h4>Follow Us</h4>
             <a href="https://www.x.com">
                 <i class="fa-brands fa-x-twitter"></i>
             </a>
-        
             <a href="https://www.instagram.com">
                 <i class="fa-brands fa-instagram"></i>
             </a>
-        
             <a href="https://www.facebook.com">
                 <i class="fa-brands fa-facebook"></i>
             </a>
     </div>
-
   </div>
-
   <p class="copyright">© 2026 Your Website. All rights reserved.</p>
 </footer>
 
@@ -157,18 +129,16 @@ Email: example@email.com
 /* ===== GLOBAL ===== */
 @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap'); 
 @import url('https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
-/*@font-face{
-    font-family: "Fleshandblood";
-    src: url("Fleshandblood-MVA5x.ttf") format(turetype);
-}*/
+
 *{
     margin:0;
     padding:0;
-    box-sizing:border-box;
+    box-sizing:border-box; /* Crucial for responsiveness */
 }
 
-body{/*(contact.html)*/
-    background-color:#000;
+body{
+    background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), 
+    url(login_bg_alt.png);
     color:white;
     font-family:"Inter", sans-serif;
     font-weight: 400;
@@ -193,7 +163,7 @@ body{/*(contact.html)*/
     margin-top: 16px;
     backdrop-filter: blur(6.83px);
     -webkit-backdrop-filter: blur(6.83px);
-    transform: scale(0.989);
+    transform: scale(0.989); /*can break "sticky"*/
     z-index: 1000;
 
 }
@@ -206,7 +176,7 @@ body{/*(contact.html)*/
     font-weight: bold;
     font-family: "Inter", sans-serif;
     margin-left: 1px;
-    flex-wrap: nowrap; /*prevents the logo from shrinking in smaller screens*/ /*prevents the logo from shrinking in smaller screens*/
+    flex-wrap: nowrap; /*prevents the logo from shrinking in smaller screens*/
 }
 .img-logo{
     width: 52px;
@@ -251,10 +221,23 @@ body{/*(contact.html)*/
 @media (max-width:768px){
     .nav-links a.active-page {
     color:rgb(0, 0, 0);
-    background-color: rgba(210, 240, 90, 0.925); 
+    background-color: rgba(210, 240, 90, 0.925); /*rgba(176, 176, 175, 0.833)*/
     border-radius: 22px;
     border: 1.6px solid rgb(0, 0, 0);
     }
+}
+
+.nav-links a:hover{
+    color:rgb(0, 0, 0);
+    background-color: rgba(255, 255, 255, 0.897);
+    border-radius: 22px;
+    
+}
+.nav-links a:active{
+    color:rgb(0, 0, 0);
+    background-color: rgb(210, 240, 90); 
+    border-radius: 22px;
+    border: 1.6px solid rgb(0, 0, 0);
 }
 
 /*====Mobile responsiveness for navigation bar====*/
@@ -267,17 +250,7 @@ body{/*(contact.html)*/
         line-height: 1.1;
         max-width: 55px; /* Adjust this to force the wrap perfectly */
     }
-    .logo-link {
-        text-decoration: none; /* Removes underline */
-        color: inherit;        /* Keeps your white text color */
-        display: flex;         /* Maintains the flex alignment */
-        align-items: center;
-    }
 
-    .logo-link:hover {
-        opacity: 0.8;          /* Optional: gives a slight "clickable" feel on hover */
-        transition: 0.3s;
-    }
     .navbar {
         display: flex;
         justify-content: flex-start; 
@@ -288,7 +261,7 @@ body{/*(contact.html)*/
     .nav-links {
         display: flex;
         flex: 1; /* Takes up all remaining space to the right */
-        overflow-x: auto;
+        overflow-x: auto; /*can cause side scrolling in pages*/
         white-space: nowrap;
         scrollbar-width: none;
         -webkit-overflow-scrolling: touch;
@@ -297,17 +270,17 @@ body{/*(contact.html)*/
         -webkit-mask-image: linear-gradient(to right, 
             black 0%,      /* Start 100% visible right after the logo */
             black 65%,     /* Stay visible through most of the bar */
-            rgba(0,0,0,0.6) 80%,
+            rgba(0, 0, 0, 0.872) 87%, /*small update*/
             transparent 100% /* Smoothly disappear at the very edge */
         );
         mask-image: linear-gradient(to right, 
-            black 0%, 
-            black 65%, 
-            rgba(0,0,0,0.6) 80%,
+            rgb(0, 0, 0) 0%, 
+            rgb(0, 0, 0) 65%, 
+            rgba(0, 0, 0, 0.872) 87%, /*small update*/
             transparent 100%
         );
 
-        padding-right: 60px; /* Space for the last button to scroll out of the fade */
+        padding-right: 80px; /* Space for the last button to scroll out of the fade */
     }
 
     .nav-links a{
@@ -319,7 +292,7 @@ body{/*(contact.html)*/
     }
     .nav-links a:hover{
         color:rgb(0, 0, 0);
-        background-color:rgba(230, 245, 150, 0.9)/* rgb(103, 104, 102)*/; 
+        background-color:rgba(230, 245, 150, 0.9)/* rgb(103, 104, 102)*/;
         border-radius: 22px;
         border: 1.6px solid rgb(0, 0, 0);
 
@@ -328,127 +301,146 @@ body{/*(contact.html)*/
         display: none;
     }
 }
-
-
-/*===THE INPUTS===*/
-.contact-container{
-    display:flex;
-    justify-content:center;
-    align-items:flex-start;
-    gap:80px;
-    margin-top:50px;
-}
-
+/*=== THE CONTACT SECTION (UPDATED) ===*/
 .contact_page_header h1 {
-    padding: 20px 15px;
-    font-size: clamp(32px, 5vw, 42px);
-    font-family: 'kanit', sans-serif ;
-    color: #fff;
-    text-align: center;
-    font-weight: 400;
+    padding: 20px 15px 5px;
+    font-weight: 500; 
+
+    /* 2. UPDATED Font Size: Boosted the clamp values slightly */
+    font-size: clamp(42px, 7vw, 56px); 
     
+    font-family: 'kanit', sans-serif ;
+    text-align: center;
+
+    /* 3. NEW: The Gradient Magic */
+    background: linear-gradient(-90deg, #FFFFFF 0%, rgb(168, 202, 48) 100%); /* Defines the gradient: Top (white) to Bottom (green) */
+    -webkit-background-clip: text; /* Clips the background to the text shapes (for Webkit/Chrome) */
+    background-clip: text;         /* Standard property */
+    -webkit-text-fill-color: transparent; /* Makes the original text transparent (required for clip) */
+    color: transparent;           /* Standard property */
+
+    /* Small gap between title and description */
+    margin-bottom: 5px;
 }
+
 .contact_page_header p {
     font-family: 'inter', sans-serif ;
     color: #fff;
     text-align: center;
-    font-weight: 300;
+    font-weight: 500;
     font-size: 14px;
 }
-.contact-form{
-    width: 70%;
-    max-width: 400px;
+
+.contact-container {
+    display: flex;
+    justify-content: center;
+    align-items: stretch; /* Makes both cards equal height */
+    gap: 40px;
+    margin-top: 40px;
+    padding: 0 20px;
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
 }
-form{
+
+/* The Card Style applied to both sides */
+.contact-form, .gym-info {
+    background-color: #1414148f;
+    backdrop-filter: blur(10px);
+    border: 1.3px solid rgba(58, 58, 58, 0.927) ;
+    padding: 40px;
+    border-radius: 24px;
+    width: 100%;
+    flex: 1; /* Ensures they split the space 50/50 */
+}
+
+form {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    gap: 8px;
-
+    width: 100%;
 }
-label{
+
+label {
     text-align: left;
     width: 100%;
     font-family: 'Kanit', sans-serif;
-    font-weight: 400;
+    font-weight: 500;
+    margin-bottom: 8px;
+    color: #dcdcdcf9;
 }
-input{
-    width: 70%;
-    padding: 10px;
-    margin-bottom: 16px;
-    border-radius: 8px;
-    border: none;
+
+/* Inputs now use 100% width and match your screenshot */
+input, textarea {
+    width: 100%;
+    padding: 14px;
+    margin-bottom: 20px;
+    border-radius: 12px;
+    border: 1px solid rgb(87, 87, 87);
     outline: none;
-    background-color: #2a2a2a;
+    background-color: #1c1c1cb7;
     color: white;
     font-size: 14px;
-}
-
-input:focus{
-    box-shadow: 0 0 0 2px rgb(200,230,90);
-}
-button{
-    background-color:rgb(200,230,90);
-    color:black;
-    width: 100%;
-    padding:10px 24px;
-    margin-top: 23px;
-    border: solid 2px #333;
-    border-radius:14px;
-    font-weight:600;
-    font-size: 16px;
-    cursor:pointer;
-    transition:0.27s ease;
-}
-.gym-info{
-    max-width:300px;
-    font-size:14px;
-    line-height:1.6;
-}
-
-.map{
-    width: 100%;
-    height: 360px;
-    margin-top:15px;
-    border-radius:10px;
-    border:none;
-}
-textarea{
-    width:85%;
-    padding:10px;
-    border-radius:8px;
-    border:none;
-    outline:none;
-    background-color:#2a2a2a;
-    color:white;
     font-family: "Inter", sans-serif;
-    font-size:14px;
-    min-height:70px;
+    transition: 0.2s ease;
+}
+
+textarea {
+    min-height: 120px;
     resize: vertical;
 }
 
-/*#name{
-
-}
-#email{
-
-}
-#subject{
-
-}
-#message{
-
+input:focus, textarea:focus {
+    box-shadow: 0 0 0 2px rgb(200,230,90);
 }
 
-/*===THE FOOTER===*/
+/* Updated Button to Match Screenshot */
+button {
+    background-color: rgb(200,230,90);
+    color: black;
+    width: 100%;
+    padding: 14px 24px;
+    margin-top: 10px;
+    border: none;
+    border-radius: 30px; /* Pill shape */
+    font-weight: 700;
+    font-size: 16px;
+    font-family: 'Inter', sans-serif;
+    cursor: pointer;
+    transition: 0.27s ease;
+}
+
+button:hover {
+    background-color: rgb(215, 245, 105);
+    transform: translateY(-2px);
+}
+
+/* Gym Info Details */
+.gym-info address {
+    font-style: italic;
+    color: #ccc;
+    font-size: 15px;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+.map {
+    width: 100%;
+    height: 250px;
+    border-radius: 12px;
+    border: none;
+}
+
+
+/*=== THE FOOTER (Unchanged) ===*/
 .footer{
     background-color:#1a1a1a;
     color:#fff;
     padding:20px 0;
     font-family:"Inter", sans-serif;
     text-align:center;
+    margin-top: 60px;
 }
-
 .footer-container{
     max-width:1200px;
     margin:0 auto;
@@ -457,155 +449,112 @@ textarea{
     justify-content:space-between;
     align-items:center;
 }
-
 .footer-section{
     flex:1;
     min-width:150px;
     margin:10px;
 }
-
 .footer-section h4{
     padding-bottom: 14px;
 }
-
 .footer ul{
     list-style:none;
     padding:0;
     margin:0;
 }
-
 .footer ul li{
     margin:6px 0;
 }
-
 .footer a{
     color:#aaaaaa;
     text-decoration:none;
     transition:0.27s;
 }
-
 .footer a:hover{
     color:rgb(210,240,90);
 }
-
 .footer-section a{
     margin-right:10px;
 }
-
 .copyright{
     margin-top:20px;
     font-size:14px;
 }
-.fa-facebook{
+.fa-facebook, .fa-x-twitter, .fa-instagram{
     color: rgb(200,230,90);
     font-size: x-large;
     transition: 0.3s ease;
+}
+.fa-facebook:hover, .fa-x-twitter:hover, .fa-instagram:hover{
+    color: rgb(204, 255, 0);
+}
 
-}
-.fa-x-twitter{
-    color: rgb(200,230,90);
-    font-size: x-large;
-    transition: 0.3s ease;
-}
-.fa-instagram{
-    color: rgb(200,230,90);
-    font-size: 23px;
-    transition: 0.37s ease;
-}
-.fa-facebook:hover{
-    color: rgb(204, 255, 0);
-}
-.fa-x-twitter:hover{
-    color: rgb(204, 255, 0);
-}
-.fa-instagram:hover{
-    color: rgb(204, 255, 0);
-}
-/*====OPENING HOURS TABLE====*/
+/*==== OPENING HOURS TABLE ====*/
 .opening-hours {
   max-width: 400px;
-  margin: 40px auto;
+  margin: 40px auto 60px;
   font-family: 'Inter', sans-serif;
   color: white;
 }
-
 table {
   width: 100%;
-  border-collapse: collapse; /* Essential: merges borders into single lines */
+  border-collapse: collapse;
   background: #1a1a1a;
   border-radius: 12px;
-  overflow: hidden; /* Ensures the rounded corners apply to the rows */
+  overflow: hidden;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
 }
-
 caption {
   font-size: 1.5rem;
   font-weight: bold;
   margin-bottom: 15px;
-  color: rgb(200,230,90); /* Matches your neon accent from the form */
+  color: rgb(200,230,90);
   text-transform: uppercase;
   letter-spacing: 1px;
   text-align: center;
 }
-
 th, td {
   padding: 16px 20px;
   text-align: left;
-  border-bottom: 1px solid #333; /* Subtle separators */
+  border-bottom: 1px solid #333;
 }
-
 th {
   background-color: #252525;
   color: #888;
   font-size: 0.9rem;
   text-transform: uppercase;
 }
-
-/* Zebra Striping: makes rows easier to read */
 tr:nth-child(even) {
   background-color: #212121;
 }
-
-/* Hover effect: makes it feel interactive */
 tr:hover {
   background-color: #2a2a2a;
   transition: 0.2s ease;
 }
-
-/* Remove the border from the very last row */
 tr:last-child td {
   border-bottom: solid 2px rgb(200,230,90);
 }
-
-/* Highlight the Hours column */
 td:last-child {
   font-weight: bold;
   color: rgb(200,230,90);
-  text-align: left; 
 }
-/*===RESPONSIVE TWEAKS===*/
 
+/*=== RESPONSIVE TWEAKS (FIXED FOR MOBILE) ===*/
 @media (max-width: 768px) {
-
     .contact-container {
-        flex-direction: column; 
+        flex-direction: column; /* Stacks the cards vertically */
         gap: 30px;
         align-items: center;
         padding: 0 15px;
     }
-
-    .contact-form,.gym-info {
+    .contact-form, .gym-info {
         width: 100%;
         max-width: 500px;
+        padding: 30px 20px; /* Slightly less padding on small screens */
     }
-
-
 }
-
 </style>
 
-
 </main>
-
-
 </body>
+</html>

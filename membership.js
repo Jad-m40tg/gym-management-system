@@ -6,7 +6,7 @@ const date_of_birth_input = document.getElementById('dob');
 const plan_selected = document.getElementById('planselect');
 const registration_form = document.getElementById('reg'); 
 // a fucntion to validate the email
-const isValidEmail = (email_input) =>{
+const isValidEmail = (email_input) => {
     const email_regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if(email_regex.test(email_input)){
         return true;
