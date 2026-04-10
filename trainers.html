@@ -27,7 +27,7 @@
 <main>
     <section class="trainers_title">
         <h3>Meet Your Transformation Team </h3>
-        <p>depending on your exercise and training here you can find the best for you to help</p>
+        <p>Find the right trainer to match your fitness goals</p>
     </section>
     <section class="features">
 <article class="feature-card">
@@ -273,7 +273,8 @@
 
 body{ /*(trainers.html)*/
     margin: 0;
-    background-color:#000;
+    background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), 
+    url("trainers_bg.png");
     filter: contrast(300px);
     color:white;
     font-family:"Inter", sans-serif;
@@ -559,6 +560,7 @@ body{ /*(trainers.html)*/
     padding:100px 20px;
     border-top:1px solid rgba(210, 240, 90) ;
     background: linear-gradient(180deg, rgba(0, 0, 0, 0.872) 46%, rgba(210, 240, 90, 0.685) 100%);
+    backdrop-filter: blur(5px);
 }
 
 .cta h2{

@@ -190,8 +190,12 @@ body{
 /* Title */
 .main-title{
     text-align: center;
-    color: white;
-    font-size: clamp(32px, 5vw, 42px);
+    background: linear-gradient(-90deg, #FFFFFF 0%, rgb(168, 202, 48) 100%); /* Defines the gradient: Top (white) to Bottom (green) */
+    -webkit-background-clip: text; /* Clips the background to the text shapes (for Webkit/Chrome) */
+    background-clip: text;         /* Standard property */
+    -webkit-text-fill-color: transparent; /* Makes the original text transparent (required for clip) */
+    color: transparent;  
+    font-size: clamp(40px, 7vw, 52px);
     margin-top: 50px;
     font-weight:400;
     font-family: 'Kanit', sans-serif;
