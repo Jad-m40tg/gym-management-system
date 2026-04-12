@@ -11,7 +11,8 @@
     @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
 
 body{
-    background-color: #000000;
+    background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), 
+    url("memberships_bg.png");
     margin: 0;
     padding: 0;
     font-family: "Inter", sans-serif;
@@ -367,10 +368,12 @@ body{
 .registration-section {
     max-width: 800px;
     margin: 60px auto;
-    background-color: #141414;
+    background-color: #2323234a;
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
     padding: 40px;
     border-radius: 24px;
-    border: 1px solid rgba(255,255,255,0.05);
+    border: 1px solid rgba(255, 255, 255, 0.169);
     box-sizing: border-box;
 }
 .registration-section h2{
@@ -381,7 +384,7 @@ body{
     margin-bottom: 8px;
 }
 .registration-section p{
-    color: #888;
+    color: #c6c6c6;
     text-align: center;
     margin-bottom: 30px;
 }
@@ -403,7 +406,7 @@ body{
 }
 
 .form-group label {
-    color: #bbbbbb;
+    color: #e0e0e0;
     font-size: 14px;
     margin-bottom: 8px;
     margin-left: 5px;
@@ -467,7 +470,7 @@ body{
 /* Payment Icons */
 .payment-methods {
     margin-top: 30px;
-    border-top: 1px solid #333;
+    border-top: 1.4px solid #3a3a3a;
     padding-top: 20px;
     color: #a4a4a4;
     text-align: center;
@@ -828,26 +831,34 @@ body{
 </div>
 
 <!--registration page-->
-<div class="registration-section" id="reg">
+<div class="registration-section">
     <h2>Registration</h2>
     <p>Complete your details to start training</p>
     
-    <form class="form-grid">
+    <form class="form-grid" id="reg">
+        
         <div class="form-group">
-            <label id="fname">Full Name</label>
-            <input type="text" placeholder="The full name" required>
+            <label>Full Name</label>
+            <input type="text" id="fname" placeholder="The full name" required>
+            <span class="error-text" id="nameError"></span>
         </div>
+
         <div class="form-group">
-            <label id="emailadrs">Email Address</label>
-            <input type="email" placeholder="user@example.com" required>
+            <label>Email Address</label>
+            <input type="email" id="emailadrs" placeholder="user@example.com" required>
+            <span class="error-text" id="emailError"></span>
         </div>
+
         <div class="form-group">
-            <label id="phonenum">Phone Number</label>
-            <input type="tel" placeholder="+1 (555) 000-0000">
+            <label>Phone Number</label>
+            <input type="tel" id="phonenum" placeholder="+1 (555) 000-0000">
+            <span class="error-text" id="phoneError"></span>
         </div>
+
         <div class="form-group">
-            <label id="dob">Date of Birth</label>
-            <input type="date">
+            <label>Date of Birth</label>
+            <input type="date" id="dob">
+            <span class="error-text" id="dobError"></span>
         </div>
 
         <div class="plan-selector" id="planselect">
@@ -863,14 +874,16 @@ body{
                     <input type="radio" name="plan" value="gold"> Gold
                 </label>
             </div>
+            <span class="error-text" id="planError"></span>
         </div>
 
         <div class="terms-group">
             <label class="custom-checkbox">
-                <input type="checkbox" required>
+                <input type="checkbox" id="terms" required>
                 <span class="checkbox-box"></span>
                 <span class="terms-text">I agree to the Terms of Service and Privacy Policy</span>
             </label>
+            <span class="error-text" id="termsError"></span>
         </div>
 
         <button type="submit" class="btn">Complete Registration</button>
