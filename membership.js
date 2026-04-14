@@ -34,6 +34,27 @@ function setSuccess(element, errorElementId) {
             return true;
         }
     }
+    function validateName() {
+        const nameRegex = /^[A-Za-z\s]{3,}$/; 
+        if (!nameRegex.test(nameInput.value.trim())) {
+            setError(nameInput, 'nameError', 'Name must be at least 3 letters.');
+            return false;
+        } else {
+            setSuccess(nameInput, 'nameError');
+            return true;
+        }
+    }
+    function validatePhone() {
+        const phoneRegex = /^[0-9]{8,15}$/;
+        if (!phoneRegex.test(phoneInput.value.trim())) {
+            setError(phoneInput, 'phoneError', 'Phone must be 8-15 digits.');
+            return false;
+        } else {
+            setSuccess(phoneInput, 'phoneError');
+            return true;
+        }
+    }
+    
 //reciving the input from the registration form (submit)
 registration_form.addEventListener('submit', (e) => {
     e.preventDefault();//to stop the page from reloading instantly
