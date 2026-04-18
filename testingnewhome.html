@@ -19,7 +19,7 @@ body{
     background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), 
     url("exercise_machines_remastered.png");
     background-size: cover;
-    background-position: center -200px;
+
     background-repeat: no-repeat;
     filter: contrast(300px);
     color:white;
@@ -309,7 +309,10 @@ body{
     text-align:center;
     backdrop-filter: blur(12.5px);
     -webkit-backdrop-filter: blur(12.5px);
-    transition:0.4s ease; /* increased slightly for smoother observer transition */
+    transition:0.4s ease; 
+    transform: translateZ(0);
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden; /*to fix the visibility of cards when scrolling down*/
     
     /* Starting state for JS Intersection Observer */
     opacity: 0;

@@ -34,6 +34,7 @@ function setSuccess(element, errorElementId) {
             return true;
         }
     }
+
     function validateName() {
         const nameRegex = /^[A-Za-z\s]{3,}$/; 
         if (!nameRegex.test(nameInput.value.trim())) {
@@ -44,6 +45,7 @@ function setSuccess(element, errorElementId) {
             return true;
         }
     }
+
     function validatePhone() {
         const phoneRegex = /^[0-9]{8,15}$/;
         if (!phoneRegex.test(phoneInput.value.trim())) {
@@ -54,25 +56,64 @@ function setSuccess(element, errorElementId) {
             return true;
         }
     }
-    
-//reciving the input from the registration form (submit)
-registration_form.addEventListener('submit', (e) => {
-    e.preventDefault();//to stop the page from reloading instantly
-    let isregvalid = true;
-    if(name_input.value.trim() < 3 ){
-        document.getElementById('nameError').innerText="Name must be at least 3 characters";
-        name_input.classList.add('invalid');
-        isregvalid=false;
-    }else{
-        document.getElementById('nameError').innerText="";
-        name_input.classList.add('valid');
 
+    function validateDob() {
+        if (!dobInput.value) {
+            setError(dobInput, 'dobError', 'Date of birth is required.');
+            return false;
+        }
+        const birthDate = new Date(dobInput.value);
+        const today = new Date();
+        let age = today.getFullYear() - birthDate.getFullYear();
+        const monthDiff = today.getMonth() - birthDate.getMonth();
+        
+        if (monthDiff < 0 || (monthDiff === 0 && today.getDate() < birthDate.getDate())) {
+            age--;
+        }
+
+        if (age < 16) {
+            setError(dobInput, 'dobError', 'You must be at least 16 years old.');
+            return false;
+        } else {
+            setSuccess(dobInput, 'dobError');
+            return true;
+        }
     }
-    if(!isValidEmail(email_input.value.trim())){
-        console.error('Enter a valid email address');
-        isregvalid=false;
+
+    function validateTerms() {
+        if (!termsInput.checked) {
+            document.getElementById('termsError').innerText = 'You must accept the terms.';
+            return false;
+        } else {
+            document.getElementById('termsError').innerText = '';
+            return true;
+        }
     }
-}); 
+    // 5. Add Listeners (Real-time feedback when user clicks away)
+    nameInput.addEventListener('blur', validateName);
+    emailInput.addEventListener('blur', validateEmail);
+    phoneInput.addEventListener('blur', validatePhone);
+    dobInput.addEventListener('blur', validateDob);
+    termsInput.addEventListener('change', validateTerms);
+
+    // 6. Final Submit Check
+    form.addEventListener('submit', function(event) {
+        event.preventDefault(); 
+
+        const isNameValid = validateName();
+        const isEmailValid = validateEmail();
+        const isPhoneValid = validatePhone();
+        const isDobValid = validateDob();
+        const isTermsValid = validateTerms();
+
+        if (isNameValid && isEmailValid && isPhoneValid && isDobValid && isTermsValid) {
+            alert('Registration Successful! Welcome to the Gym.');
+            form.reset();
+            // Clear green borders after reset
+            document.querySelectorAll('.valid').forEach(el => el.classList.remove('valid'));
+        }
+    }); 
+
 /*function setError(element, errorElementId, message) {
         const errorSpan = document.getElementById(errorElementId);
         if (errorSpan) errorSpan.innerText = message;
@@ -178,4 +219,22 @@ registration_form.addEventListener('submit', (e) => {
             // Clear green borders after reset
             document.querySelectorAll('.valid').forEach(el => el.classList.remove('valid'));
         }
-    });*/
+    });
+    //reciving the input from the registration form (submit)
+registration_form.addEventListener('submit', (e) => {
+    e.preventDefault();//to stop the page from reloading instantly
+    let isregvalid = true;
+    if(name_input.value.trim() < 3 ){
+        document.getElementById('nameError').innerText="Name must be at least 3 characters";
+        name_input.classList.add('invalid');
+        isregvalid=false;
+    }else{
+        document.getElementById('nameError').innerText="";
+        name_input.classList.add('valid');
+
+    }
+    if(!isValidEmail(email_input.value.trim())){
+        console.error('Enter a valid email address');
+        isregvalid=false;
+    }
+}); */
