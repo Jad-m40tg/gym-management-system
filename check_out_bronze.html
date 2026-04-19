@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Checkout - Bronze Plan</title>
+
+<style>
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap'); 
+@import url('https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    background:#000000;
+    font-family:"Inter", sans-serif;
+    color:white;
+}
+
+/* page header */
+.checkout_header{
+    text-align:center;
+    margin-top:40px;
+    font-family: "kanit", sans-serif;
+}
+
+.checkout_header h1{
+    font-family:'Kanit', sans-serif;
+    font-weight:400;
+    font-size:42px;
+}
+
+.checkout_header p{
+    font-weight:300;
+    font-size:14px;
+}
+
+/* layout */
+.checkout-container{
+    display:flex;
+    justify-content:center;
+    align-items:flex-start;
+    gap:80px;
+    margin-top:50px;
+}
+
+/* form area */
+.checkout-form{
+    width:320px;
+}
+
+form{
+    display:flex;
+    flex-direction:column;
+    gap:8px;
+}
+
+input, select{
+    width:100%;
+    padding:10px;
+    margin-bottom:16px;
+    border-radius:8px;
+    border:none;
+    outline:none;
+    background-color:#2a2a2a;
+    color:white;
+    font-size:14px;
+}
+
+input:focus, select:focus{
+    box-shadow:0 0 0 2px rgb(200,230,90);
+}
+
+/* plan selection */
+.plan-select{
+    margin-bottom:15px;
+}
+
+.plan-select label{
+    display:block;
+    margin-bottom:8px;
+    cursor:pointer;
+}
+
+/* summary card */
+.summary-card{
+    background:#1a1a1a;
+    padding:30px;
+    border-radius:16px;
+    width:300px;
+    box-shadow:0 10px 30px rgba(0,0,0,0.6);
+}
+
+.summary-card h2{
+    font-family:'Kanit', sans-serif;
+    font-weight:400;
+}
+
+.summary-card ul{
+    margin-top:15px;
+    padding-left:18px;
+    font-size:14px;
+}
+
+.summary-card li{
+    margin-bottom:6px;
+}
+
+/* price section */
+
+.price{
+    margin-top:20px;
+    font-size:14px;
+}
+
+.total{
+    font-weight:bold;
+    margin-top:10px;
+}
+
+/* button */
+button{
+    background-color:rgb(200,230,90);
+    color:black;
+    padding:10px 24px;
+    border:solid 2px #333;
+    border-radius:14px;
+    font-weight:600;
+    font-size:16px;
+    cursor:pointer;
+    transition:0.27s ease;
+    width:100%;
+    margin-top:15px;
+}
+
+button:hover{
+    transform:scale(1.03);
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="checkout_header">
+<h1>Membership Checkout</h1>
+<p>Select your plan and enter payment information</p>
+</div>
+
+<div class="checkout-container">
+
+<!-- LEFT SIDE FORM -->
+
+<div class="checkout-form">
+
+<form>
+
+<h3>Select Plan</h3>
+
+<div class="plan-select">
+
+<label>
+<input type="radio" name="plan" required>
+Bronze — $20 / month
+</label>
+
+<label>
+<input type="radio" name="plan">
+Silver — $50 / 3 months
+</label>
+
+<label>
+<input type="radio" name="plan">
+Gold — $180 / year
+</label>
+
+</div>
+
+<h3>Payment Info</h3>
+
+<input type="text" placeholder="Card number">
+
+<input type="text" placeholder="Expiration date">
+
+<input type="text" placeholder="Security code">
+
+<h3>Billing Address</h3>
+
+<input type="text" placeholder="Full name">
+
+<input type="text" placeholder="Country">
+
+<input type="text" placeholder="Address line">
+
+<button type="submit">Pay Now</button>
+
+</form>
+
+</div>
+
+<!-- RIGHT SIDE SUMMARY -->
+
+<div class="summary-card">
+
+<h2>Membership</h2>
+
+<ul>
+<li>Unlimited gym access</li>
+<li>Access to all classes</li>
+<li>Locker room access</li>
+<li>Cancel anytime</li>
+</ul>
+
+<div class="price">
+<p>Monthly subscription: $20</p>
+<p>Tax: $0</p>
+
+<p class="total">Due today: $20</p>
+</div>
+
+<button>Confirm Payment</button>
+
+</div>
+
+</div>
+
+</body>
+</html>

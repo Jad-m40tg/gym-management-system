@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+        /* Global Reset */
+        * { margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: sans-serif; 
+        }
+        
+        body { 
+            background-color: #121212; 
+            color: #ffffff; 
+        }
+
+        /* Navbar Pattern */
+        .navbar {
+            display: flex;
+            justify-content: space-between; /* Pushes logo left, links right */
+            align-items: center;
+            padding: 20px 50px;
+            background-color: #1a1a1a;
+        }
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            margin-left: 20px;
+            font-size: 14px;
+        }
+
+        /* Hero Section Pattern */
+        .hero {
+            display: flex;
+            flex-direction: column; /* Stacks items vertically */
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 100px 20px;
+        }
+        .hero h1 { font-size: 48px; margin-bottom: 10px; }
+        .hero p { color: #aaaaaa; margin-bottom: 30px; }
+        .btn {
+            background-color: #333333;
+            color: white;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 8px; /* Rounded corners */
+            cursor: pointer;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="logo">FitLife Gym</div>
+        <div class="nav-links">
+            <a href="#">Home</a>
+            <a href="#">Classes</a>
+            <a href="#">Membership</a>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <h1>Welcome to FitLife Gym</h1>
+        <p>Your journey to a healthier life starts here!</p>
+        <button class="btn">Join Now</button>
+    </section>
+
+</body>
+</html>

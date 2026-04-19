@@ -1,0 +1,561 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Fitlife Gym - Classes</title>
+<!--<link rel="stylesheet" href = "style.css">-->
+
+</head>
+<body>
+
+<style>
+
+/* ===== GLOBAL ===== */
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap'); 
+@import url('https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+body{
+    background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), 
+    url("classes_bg.png");
+    color:white;
+    font-family:"Inter", sans-serif;
+    font-weight: 400;
+}
+/* ===== NAVBAR ===== */
+.navbar{
+    display:flex;
+    position: sticky;
+    top: 0;
+    justify-content:space-between;
+    align-items:center;
+    padding:10px 26px;
+    background-color:#110f0f5f;
+    border: 2px rgba(41, 41, 41, 0.795) solid;
+    border-bottom-left-radius: 18px;
+    border-bottom-right-radius: 18px;
+    border-top-right-radius: 18px;
+    border-top-left-radius: 18px;
+    margin-top: 16px;
+    backdrop-filter: blur(6.83px);
+    -webkit-backdrop-filter: blur(6.83px);
+    transform: scale(0.989);
+    z-index: 1000;
+
+}
+
+.logo{
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 20px;
+    font-weight: bold;
+    font-family: "Inter", sans-serif;
+    margin-left: 1px;
+    flex-wrap: nowrap; /*prevents the logo from shrinking in smaller screens*/ /*prevents the logo from shrinking in smaller screens*/
+}
+.img-logo{
+    width: 52px;
+    height: 52px;
+}
+.logo-link {
+    text-decoration: none; /* Removes underline */
+    color: inherit;        /* Keeps your white text color */
+    display: flex;         /* Maintains the flex alignment */
+    align-items: center;
+}
+
+.logo-link:hover {
+    opacity: 0.8;          /* Optional: gives a slight "clickable" feel on hover */
+    transition: 0.3s;
+}
+.nav-links{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.nav-links a{
+    text-decoration:none;
+    color:rgba(255, 255, 255, 0.872);
+    float: left;
+    font-weight: 400;
+    font-family: 'kanit', sans-serif;
+    padding: 6px 12px;
+    transition: all 0.346s ease;
+    font-size:15px;
+    border: 1.6px solid rgba(255, 255, 255, 0.694);
+    border-radius: 9.8px;
+    white-space: nowrap; /*prevents txt from transforming into 2 lines*/
+}
+
+.nav-links a:hover{
+    color:rgb(0, 0, 0);
+    background-color: rgba(255, 255, 255, 0.897);
+    border-radius: 22px;
+    
+}
+.nav-links a:active{
+    color:rgb(0, 0, 0);
+    background-color: rgb(210, 240, 90); 
+    border-radius: 22px;
+    border: 1.6px solid rgb(0, 0, 0);
+}
+/* current active page setting*/
+.nav-links a.active-page {
+    color:rgb(0, 0, 0);
+    background-color: rgba(210, 240, 90, 0.925); 
+    border-radius: 22px;
+    border: 1.6px solid rgb(0, 0, 0);
+}
+@media (max-width:768px){
+    .nav-links a.active-page {
+    color:rgb(0, 0, 0);
+    background-color: rgba(210, 240, 90, 0.925); 
+    border-radius: 22px;
+    border: 1.6px solid rgb(0, 0, 0);
+    }
+}
+
+
+/*====Mobile responsiveness for navigation bar====*/
+
+@media (max-width: 768px) {
+    /* Stack the Logo Text */
+    .logo span {
+        display: block;
+        color: white;
+        font-size: 15px;
+        line-height: 1.1;
+        max-width: 55px; /* Adjust this to force the wrap perfectly */
+    }
+    .logo-link {
+        text-decoration: none; /* Removes underline */
+        color: inherit;        /* Keeps your white text color */
+        display: flex;         /* Maintains the flex alignment */
+        align-items: center;
+    }
+
+    .logo-link:hover {
+        opacity: 0.8;          /* Optional: gives a slight "clickable" feel on hover */
+        transition: 0.3s;
+    }
+
+    .navbar {
+        display: flex;
+        justify-content: flex-start; 
+        gap: 8px; /* Control that 'orange space' here */
+        padding: 10px 15px;
+    }
+
+    .nav-links {
+        display: flex;
+        flex: 1; /* Takes up all remaining space to the right */
+        overflow-x: auto;
+        white-space: nowrap;
+        scrollbar-width: none;
+        -webkit-overflow-scrolling: touch;
+
+        /* CLEAN RIGHT FADE ONLY */
+        -webkit-mask-image: linear-gradient(to right, 
+            black 0%,      /* Start 100% visible right after the logo */
+            black 65%,     /* Stay visible through most of the bar */
+            rgba(0, 0, 0, 0.872) 87%, /*small update*/
+            transparent 100% /* Smoothly disappear at the very edge */
+        );
+        mask-image: linear-gradient(to right, 
+            black 0%, 
+            black 65%, 
+            rgba(0, 0, 0, 0.872) 87%, /*small update*/
+            transparent 100%
+        );
+
+        padding-right: 60px; /* Space for the last button to scroll out of the fade */
+    }
+
+    .nav-links a{
+        color:rgb(0, 0, 0);
+        background-color: rgba(255, 255, 255, 0.829);
+        border-radius: 22px;
+        font-weight: 500;
+
+    }
+    .nav-links a:hover{
+        color:rgb(0, 0, 0);
+        background-color:rgba(230, 245, 150, 0.9)/* rgb(103, 104, 102)*/;
+        border-radius: 22px;
+        border: 1.6px solid rgb(0, 0, 0);
+
+    }
+    .nav-links::-webkit-scrollbar {
+        display: none;
+    }
+}
+
+/* ===== HEADER ===== */
+
+.page-header{
+    text-align:center;
+    margin-top:60px;
+}
+
+.page-header h1{
+    font-size: clamp(42px, 7vw, 52px); /*responsive size*/
+    /*font-size:42px;*/
+    font-family: "kanit", sans-serif;
+    font-weight:400;
+    padding: 30px;
+    /*The Gradient title */
+    background: linear-gradient(-90deg, #FFFFFF 0%, rgb(168, 202, 48) 100%); /* Defines the gradient: Top (white) to Bottom (green) */
+    -webkit-background-clip: text; /* Clips the background to the text shapes (for Webkit/Chrome) */
+    background-clip: text;         /* Standard property */
+    -webkit-text-fill-color: transparent; /* Makes the original text transparent (required for clip) */
+    color: transparent;
+}
+
+.page-header p{
+    color:#bbb;
+    margin-top:10px;
+    font-weight: 400;
+    padding: 16px;
+}
+
+/* ===== TABLE SECTION ===== */
+
+.classes-section{
+    max-width:900px;
+    margin:60px auto;
+}
+.table-wrapper {
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
+.table-wrapper::-webkit-scrollbar {
+    height: 6px;
+}
+
+.table-wrapper::-webkit-scrollbar-thumb {
+    background: #444;
+    border-radius: 10px;
+}
+
+/* ===== TABLE STYLE ===== */
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background: #1a1a1a;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+.table-title {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 15px;
+  color: rgb(200,230,90);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  padding: 13px;
+  text-align: center;
+}
+
+
+th, td {
+  padding: 16px 20px;
+  text-align: left;
+  border-bottom: 1px solid #333;
+}
+
+th {
+  background-color: #252525;
+  color: #888;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+}
+
+tr:nth-child(even) {
+  background-color: #212121;
+}
+
+tr:hover {
+  background-color: #2a2a2a;
+  transition: 0.2s ease;
+}
+
+tr:last-child td {
+  border-bottom: solid 2px rgb(200,230,90);
+}
+
+td:last-child {
+  font-weight: bold;
+  color: rgb(200,230,90);
+}
+
+/* ===== CLASS LINKS ===== */
+
+td a{
+    color:white;
+    text-decoration:none;
+}
+
+td a:hover{
+    color:rgb(200,230,90);
+}
+
+/* ===== FILTER NOTE ===== */
+
+.filter-note{
+    margin-top:25px;
+    text-align:center;
+    color:#888;
+    font-size:14px;
+}
+.footer{
+    background-color:#1a1a1a;
+    color:#fff;
+    padding:20px 0;
+    font-family:"Inter", sans-serif;
+    text-align:center;
+}
+
+.footer-container{
+    max-width:1200px;
+    margin:0 auto;
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.footer-section{
+    flex:1;
+    min-width:150px;
+    margin:10px;
+}
+
+.footer-section h4{
+    padding-bottom: 14px;
+}
+
+.footer ul{
+    list-style:none;
+    padding:0;
+    margin:0;
+}
+
+.footer ul li{
+    margin:6px 0;
+}
+
+.footer a{
+    color:#aaaaaa;
+    text-decoration:none;
+    transition:0.27s;
+}
+
+.footer a:hover{
+    color:rgb(210,240,90);
+}
+
+.footer-section a{
+    margin-right:10px;
+}
+
+.copyright{
+    margin-top:20px;
+    font-size:14px;
+}
+.fa-facebook{
+    color: rgb(200,230,90);
+    font-size: x-large;
+    transition: 0.3s ease;
+
+}
+.fa-x-twitter{
+    color: rgb(200,230,90);
+    font-size: x-large;
+    transition: 0.3s ease;
+}
+.fa-instagram{
+    color: rgb(200,230,90);
+    font-size: 23px;
+    transition: 0.37s ease;
+}
+.fa-facebook:hover{
+    color: rgb(204, 255, 0);
+}
+.fa-x-twitter:hover{
+    color: rgb(204, 255, 0);
+}
+.fa-instagram:hover{
+    color: rgb(204, 255, 0);
+}
+
+</style>
+<script src="https://kit.fontawesome.com/d6c36e2854.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <nav class="navbar">
+    <a href="testingnewhome.html" class="logo-link"> 
+        <div class="logo">
+            <img src="gym_suggested_logo-removebg-preview.png" alt="FitLife Logo" class="img-logo">
+            <span>FitLife Gym</span>
+        </div>
+    </a>
+    <div class="nav-links">
+        <a href="testing5.html">Home</a>
+        <a href="classes.html" class="active-page">Classes</a>
+        <a href="testing3.html">Membership</a>
+        <a href="trainers.html">Trainers</a>
+        <a href="contact.html">Contact</a>
+    </div>
+</nav>
+
+<header class="page-header">
+
+<h1>Our Gym Classes</h1>
+<p>Explore our weekly training sessions and find the perfect class for you.</p>
+
+</header>
+
+<main>
+
+<section class="classes-section">
+    <h2 class="table-title">
+        <caption>Weekly Class Schedule</caption>
+    </h2>
+
+    <div class="table-wrapper"> 
+        <table>
+            <thead>
+                <tr>
+                    <th>Class Name</th>
+                    <th>Trainer</th>
+                    <th>Day</th>
+                    <th>Time</th>
+                    <th>Duration</th>
+                    <th>Difficulty</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr>
+                    <td><a href="#">HIIT Training</a></td>
+                    <td> <b>Trainer Name</b></td>
+                    <td>Monday</td>
+                    <td>18:00</td>
+                    <td>45 min</td>
+                    <td>Advanced</td>
+                </tr>
+
+                <tr>
+                    <td><a href="#">Yoga Flow</a></td>
+                    <td><b>Trainer Name</b></td>
+                    <td>Tuesday</td>
+                    <td>10:00</td>
+                    <td>60 min</td>
+                    <td>Beginner</td>
+                </tr>
+
+                <tr>
+                    <td><a href="#">Strength Training</a></td>
+                    <td><b>Trainer Name</b></td>
+                    <td>Wednesday</td>
+                    <td>17:30</td>
+                    <td>60 min</td>
+                    <td>Intermediate</td>
+                </tr>
+
+                <tr>
+                    <td><a href="#">Boxing Conditioning</a></td>
+                    <td><b>Trainer Name</b></td>
+                    <td>Thursday</td>
+                    <td>19:00</td>
+                    <td>50 min</td>
+                    <td>Advanced</td>
+                </tr>
+
+                <tr>
+                    <td><a href="#">Pilates Core</a></td>
+                    <td><b>Trainer Name</b></td>
+                    <td>Friday</td>
+                    <td>11:00</td>
+                    <td>45 min</td>
+                    <td>Beginner</td>
+                </tr>
+
+                <tr>
+                    <td><a href="#">Functional Training</a></td>
+                    <td><b>Trainer Name</b></td>
+                    <td>Saturday</td>
+                    <td>16:00</td>
+                    <td>60 min</td>
+                    <td>Intermediate</td>
+                </tr>
+
+        </tbody>
+
+        </table>
+    </div>
+    <div class="filter-note">
+        <p>Class filtering by difficulty and trainer will be available soon.</p>
+    </div>
+
+</section>
+<footer class="footer">
+  <div class="footer-container">
+
+    <!-- Links Section -->
+    <div class="footer-section">
+      <h4>Quick Links</h4>
+      <ul>
+        <li><a href="home.html">Home</a></li>
+        <li><a href="contact.html">About</a></li>
+        <li><a href="trainers.html">Services</a></li>
+        <li><a href="classes.html">Contact</a></li>
+      </ul>
+    </div>
+
+    <!-- Contact Section -->
+    <div class="footer-section">
+      <h4>Contact</h4>
+      <p>Email: info@example.com</p>
+      <p>Phone: +1 234 567 890</p>
+      <p>Address: 123 Street, City, Country</p>
+    </div>
+
+    <!-- Social Section -->
+    <div class="footer-section">
+
+      <h4>Follow Us</h4>
+            <a href="https://www.x.com">
+                <i class="fa-brands fa-x-twitter"></i>
+            </a>
+        
+            <a href="https://www.instagram.com">
+                <i class="fa-brands fa-instagram"></i>
+            </a>
+        
+            <a href="https://www.facebook.com">
+                <i class="fa-brands fa-facebook"></i>
+            </a>
+        
+            
+    </div>
+
+  </div>
+
+  <p class="copyright">© 2026 FitLife Gym. All rights reserved.</p>
+</footer>
+
+
+</main>
+
+</body>
+</html>
