@@ -397,6 +397,80 @@ td a:hover{
     color: rgb(204, 255, 0);
 }
 
+/* ===== REDESIGNED FILTER BAR 
+display: flex; gap: 10px; margin-bottom: 20px;
+
+===== */
+
+.class-controls {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 35px;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.03); /* Very subtle glass background */
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+}
+
+#classSearch, #difficultyFilter {
+    padding: 12px 20px;
+    background: rgba(17, 15, 15, 0.8);
+    border: 1.5px solid rgba(255, 255, 255, 0.2);
+    border-radius: 10px;
+    color: white;
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    outline: none;
+    transition: all 0.3s ease;
+}
+
+/* Make the search bar wider */
+#classSearch {
+    flex: 2;
+    max-width: 400px;
+}
+
+/* Difficulty dropdown sizing */
+#difficultyFilter {
+    flex: 1;
+    max-width: 200px;
+    cursor: pointer;
+}
+
+/* Hover & Focus Effects - Using your Lime Green Accents */
+#classSearch:hover, #difficultyFilter:hover {
+    border-color: rgba(200, 230, 90, 0.852);
+}
+
+#classSearch:focus, #difficultyFilter:focus {
+    border-color: rgb(200, 230, 90);
+    box-shadow: 0 0 15px rgba(200, 230, 90, 0.342);
+    background: rgba(0, 0, 0, 0.9);
+}
+
+/* Styling the dropdown options (browser dependent, but helps) */
+#difficultyFilter option {
+    background-color: #1a1a1a;
+    color: white;
+}
+
+/* Mobile Responsiveness for the Filter Bar */
+@media (max-width: 768px) {
+    .class-controls {
+        flex-direction: column;
+        gap: 12px;
+        padding: 15px;
+    }
+    
+    #classSearch, #difficultyFilter {
+        max-width: 100%;
+        width: 100%;
+    }
+}
+
 </style>
 <script src="https://kit.fontawesome.com/d6c36e2854.js" crossorigin="anonymous"></script>
 </head>
@@ -430,21 +504,32 @@ td a:hover{
     <h2 class="table-title">
         <caption>Weekly Class Schedule</caption>
     </h2>
+    <div class="class-controls">
+    <input type="text" id="classSearch" placeholder="Search by class or trainer..." 
+       oninput="sortAndFilter()">
 
+        <select id="difficultyFilter" onchange="sortAndFilter()">
+            <option value="all">All Difficulties</option>
+            <option value="beginner">Beginner</option>
+            <option value="intermediate">Intermediate</option>
+            <option value="advanced">Advanced</option>
+        </select>
+</div>
     <div class="table-wrapper"> 
+    
         <table>
             <thead>
                 <tr>
-                    <th>Class Name</th>
-                    <th>Trainer</th>
+                    <th onclick="setSort('name')" style="cursor:pointer">Class Name <span id="sort-name"></span></th>
+                    <th onclick="setSort('trainer')" style="cursor:pointer">Trainer <span id="sort-trainer"></span></th>
                     <th>Day</th>
                     <th>Time</th>
                     <th>Duration</th>
-                    <th>Difficulty</th>
+                    <th onclick="setSort('difficulty')" style="cursor:pointer">Difficulty <span id="sort-difficulty"></span></th>
                 </tr>
             </thead>
 
-            <tbody>
+            <tbody id="class-table-body">
                 <tr>
                     <td><a href="#">HIIT Training</a></td>
                     <td> <b>Trainer Name</b></td>
@@ -556,6 +641,7 @@ td a:hover{
 
 
 </main>
-
+<script src="classes.js"></script>
 </body>
+
 </html>

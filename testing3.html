@@ -12,7 +12,7 @@
 
 body{
     background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), 
-    url("memberships_bg.png");
+    url("membership_bg_v2.png");
     margin: 0;
     padding: 0;
     font-family: "Inter", sans-serif;
@@ -240,9 +240,9 @@ body{
 }
 
 .popular-card{
-    border: 1.45px solid rgba(200, 230, 90, 0.409); 
-    box-shadow: 0 0 20px rgba(200, 230, 90, 0.37), 
-     0 10px 30px rgba(0, 0, 0, 0.167);
+    border: 1.45px solid rgba(200, 230, 90, 0.628); 
+    box-shadow: 0 0 28px rgba(200, 230, 90, 0.388), 
+     0 20px 30px rgba(0, 0, 0, 0.167);
     transform: scale(1.026);
     z-index: 10; /* Ensures the glow sits on top of neighbors */
 
@@ -280,7 +280,8 @@ body{
     list-style: none;
     padding: 0;
     margin-bottom: 30px;
-    color: #dddddd;
+    color: #ebebeb;
+    font-weight: 550;
     font-size: 12px;
     line-height: 2;
     flex-wrap: center;
@@ -373,7 +374,9 @@ body{
     -webkit-backdrop-filter: blur(16px);
     padding: 40px;
     border-radius: 24px;
-    border: 1px solid rgba(255, 255, 255, 0.169);
+    border: 1.45px solid rgba(200, 230, 90, 0.409); 
+    box-shadow: 0 0 20px rgba(200, 230, 90, 0.37), 
+     0 10px 30px rgba(0, 0, 0, 0.338);
     box-sizing: border-box;
 }
 .registration-section h2{
@@ -407,6 +410,8 @@ body{
 
 .form-group label {
     color: #e0e0e0;
+    font-family: inter, sans-serif;
+    font-weight: 600;
     font-size: 14px;
     margin-bottom: 8px;
     margin-left: 5px;
@@ -415,8 +420,8 @@ body{
 .form-group input, .form-group select {
     padding: 12px 16px;
     border-radius: 23px;
-    border: 1.7px solid #3333337d;
-    background-color: #000;
+    border: 1.7px solid #3c3c3ce5;
+    background-color: #0b0b0b;
     color: white;
     outline: none;
     transition: 0.3s;
@@ -424,7 +429,7 @@ body{
 }
 
 .form-group input:focus {
-    border-color: rgb(200,230,90);
+    border-color: rgba(200, 230, 90, 0.874);
     box-shadow: 0 0 10px rgba(200,230,90, 0.2);
 }
 
