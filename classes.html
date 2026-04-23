@@ -409,15 +409,15 @@ display: flex; gap: 10px; margin-bottom: 20px;
     justify-content: center;
     align-items: center;
     padding: 20px;
-    background: rgba(255, 255, 255, 0.03); /* Very subtle glass background */
+    background: rgba(198, 198, 198, 0.03);
     backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: 15px;
+    border: 1px solid rgba(255, 255, 255, 0.205);
+    border-radius: 16px;
 }
 
 #classSearch, #difficultyFilter {
     padding: 12px 20px;
-    background: rgba(17, 15, 15, 0.8);
+    background: rgba(2, 2, 2, 0.8);
     border: 1.5px solid rgba(255, 255, 255, 0.2);
     border-radius: 10px;
     color: white;
@@ -431,18 +431,22 @@ display: flex; gap: 10px; margin-bottom: 20px;
 #classSearch {
     flex: 2;
     max-width: 400px;
+    font-family: kanit, sans-serif;
+    font-weight: 400;
 }
 
 /* Difficulty dropdown sizing */
 #difficultyFilter {
     flex: 1;
-    max-width: 200px;
+    max-width: 250px;
     cursor: pointer;
+    font-family: kanit, sans-serif;
+    font-weight: 400;
 }
 
 /* Hover & Focus Effects - Using your Lime Green Accents */
 #classSearch:hover, #difficultyFilter:hover {
-    border-color: rgba(200, 230, 90, 0.852);
+    border-color: rgba(200, 230, 90, 0.868);
 }
 
 #classSearch:focus, #difficultyFilter:focus {

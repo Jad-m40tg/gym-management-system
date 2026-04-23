@@ -44,8 +44,7 @@ function sortAndFilter() {
 
     // Filter
     let filtered = gymClasses.filter(c => {
-        const matchesSearch = c.name.toLowerCase().includes(searchTerm) || 
-                              c.trainer.toLowerCase().includes(searchTerm);
+        const matchesSearch = c.name.toLowerCase().includes(searchTerm) || c.trainer.toLowerCase().includes(searchTerm);
         const matchesDiff = difficulty === 'all' || c.difficulty.toLowerCase() === difficulty;
         return matchesSearch && matchesDiff;
     });
