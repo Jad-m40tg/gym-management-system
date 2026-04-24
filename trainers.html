@@ -2,10 +2,8 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>FitLife - Trainers</title>
-
-<!--<link rel="stylesheet" href="style.css">-->   
 
 </head>
 <script src="https://kit.fontawesome.com/d6c36e2854.js" crossorigin="anonymous"></script>
@@ -29,8 +27,17 @@
     <section class="trainers_title">
         <h3>Meet Your Transformation Team </h3>
         <p>Find the right trainer to match your fitness goals</p>
+        
+        <div class="search-container">
+            <div class="search-wrapper">
+                <i class="fa-solid fa-magnifying-glass"></i>
+                <input type="text" id="trainerSearch" placeholder="Search by name or specialty..." oninput="filterTrainers()">
+            </div>
+        </div>
+
     </section>
-    <section class="features">
+    
+    <section class="features" id="trainer-grid">
 <article class="feature-card">
     <figure>
         <img src="Osama_bin_Laden.png" alt="trainer pfp" width="100" height="100">
@@ -181,15 +188,18 @@
         <button class="btn">Go to Contact page</button>    
     </a>
     <p>Please contact us more for more details</p>
-
-
-
 </section>
+
+<div id="trainerModal" class="modal">
+    <div class="modal-content">
+        <span class="close-btn" onclick="closeModal()">&times;</span>
+        <div id="modalData"></div>
+    </div>
+</div>
 
 <footer class="footer">
   <div class="footer-container">
 
-    <!-- Links Section -->
     <div class="footer-section">
       <h4>Quick Links</h4>
       <ul>
@@ -200,7 +210,6 @@
       </ul>
     </div>
 
-    <!-- Contact Section -->
     <div class="footer-section">
       <h4>Contact</h4>
       <p>Email: info@example.com</p>
@@ -208,7 +217,6 @@
       <p>Address: 123 Street, City, Country</p>
     </div>
 
-    <!-- Social Section -->
     <div class="footer-section">
 
       <h4>Follow Us</h4>
@@ -231,7 +239,6 @@
 
   <p class="copyright">© 2026 FitLife Gym. All rights reserved.</p>
 </footer>
-
 
 <style>
     /* ===== GLOBAL ===== */
@@ -468,7 +475,7 @@ body{ /*(trainers.html)*/
 
 .features{
     display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(268px,1fr));
+    grid-template-columns:repeat(auto-fill,minmax(268px,1fr));
     gap:30px;
     padding:60px 30px;
     max-width: 1200px;
@@ -656,7 +663,91 @@ body{ /*(trainers.html)*/
 .fa-instagram:hover{
     color: rgb(204, 255, 0);
 }
+
+/* ========================================= */
+/* ADDED: CSS FOR SEARCH BAR AND MODAL       */
+/* ========================================= */
+
+.search-container {
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+    margin-bottom: 10px;
+}
+
+.search-wrapper {
+    position: relative;
+    width: 100%;
+    max-width: 450px;
+}
+
+.search-wrapper i {
+    position: absolute;
+    left: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: rgb(210, 240, 90);
+}
+
+#trainerSearch {
+    width: 100%;
+    padding: 14px 15px 14px 45px;
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    border: 2px solid rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+    color: white;
+    font-family: 'Inter', sans-serif;
+    outline: none;
+    transition: 0.3s;
+}
+
+#trainerSearch:focus {
+    border-color: rgb(210, 240, 90);
+    box-shadow: 0 0 15px rgba(210, 240, 90, 0.2);
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 9999;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.9);
+    backdrop-filter: blur(10px);
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-content {
+    background: #151515;
+    padding: 40px;
+    border-radius: 27px;
+    border: 2px solid rgb(210, 240, 90);
+    max-width: 500px;
+    width: 90%;
+    position: relative;
+    text-align: center;
+}
+
+.close-btn {
+    position: absolute;
+    top: 20px;
+    right: 25px;
+    font-size: 28px;
+    cursor: pointer;
+    color: white;
+    transition: 0.2s;
+}
+
+.close-btn:hover {
+    color: rgb(210, 240, 90);
+}
 </style>
 </main>    
-    
+
+<script src="trainers.js"></script>
 </body>
+</html>
