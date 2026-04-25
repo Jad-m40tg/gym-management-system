@@ -98,16 +98,16 @@ document.addEventListener('DOMContentLoaded', () => {
             const userNameSpan = document.getElementById('userName');
             // If everything is true, proceed
             if (isNameValid && isEmailValid && isSubjectValid && isMessageValid) {
-    // 1. Set the name in the modal
-    userNameSpan.textContent = nameInput.value;
-    
-    // 2. Show the modal
-    modal.style.display = 'flex';
+                // 1. Set the name in the modal
+                userNameSpan.textContent = nameInput.value;
+                
+                // 2. Show the modal
+                modal.style.display = 'flex';
 
-    // 3. Reset form and remove green borders
-    contactForm.reset();
-    document.querySelectorAll('.valid').forEach(el => el.classList.remove('valid'));
-}
+                // 3. Reset form and remove green borders
+                contactForm.reset();
+                document.querySelectorAll('.valid').forEach(el => el.classList.remove('valid'));
+            }
 
 // Close button logic
         closeModal.addEventListener('click', () => {

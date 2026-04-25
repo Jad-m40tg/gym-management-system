@@ -122,7 +122,10 @@ membershipForm.addEventListener('submit', function(e) {
     const isPhoneValid = validatePhone();
     const isDOBValid = validateDOB();
     const isTermsValid = termsCheckbox.checked;
-
+    // getting the modal elements
+    const modal = document.getElementById('successModal');
+    const closeModal = document.getElementById('closeModal');
+    const userNameSpan = document.getElementById('userName');
     if (!isTermsValid) {
         termsError.textContent = "You must agree to the terms";
         termsError.style.display = "block";
@@ -131,12 +134,19 @@ membershipForm.addEventListener('submit', function(e) {
     }
 
     if (isNameValid && isEmailValid && isPhoneValid && isDOBValid && isTermsValid) {
-        alert('Registration Successful! Welcome to FitLife Gym.');
+        // 1. Set the name in the modal
+        userNameSpan.textContent = fullNameInput.value;   
+        // 2. Show the modal
+        modal.style.display = 'flex';
         sessionStorage.removeItem('selectedPlan');
         membershipForm.reset();
         // Remove the 'valid' green borders after reset
         document.querySelectorAll('.valid').forEach(el => el.classList.remove('valid'));
     }
+    // Close button logic
+        closeModal.addEventListener('click', () => {
+            modal.style.display = 'none';
+        });
 });
 
 // Initialize
