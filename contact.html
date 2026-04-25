@@ -546,10 +546,10 @@ td:last-child {
   color: rgb(200,230,90);
 }
 
-/*=== RESPONSIVE TWEAKS (FIXED FOR MOBILE) ===*/
+/*=== RESPONSIVENESS ===*/
 @media (max-width: 768px) {
     .contact-container {
-        flex-direction: column; /* Stacks the cards vertically */
+        flex-direction: column; /* stacks the cards vertically */
         gap: 30px;
         align-items: center;
         padding: 0 15px;
@@ -557,7 +557,7 @@ td:last-child {
     .contact-form, .gym-info {
         width: 100%;
         max-width: 500px;
-        padding: 30px 20px; /* Slightly less padding on small screens */
+        padding: 30px 20px; /* slightly less padding on small screens */
     }
     .map {
     width: 100%;
@@ -567,7 +567,9 @@ td:last-child {
     margin: auto;
     }
 }
+
 /*==== JS Interactivity and Feedback ====*/
+
 input.valid, textarea.valid {
     border: 2px solid #8ce44d !important; 
     box-shadow: 0 0 8px rgba(200, 230, 90, 0.4);
