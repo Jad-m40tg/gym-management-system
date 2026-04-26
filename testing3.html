@@ -406,6 +406,7 @@ body{
     display: flex;
     flex-direction: column;
     text-align: left;
+    position: relative;
 }
 
 .form-group label {
@@ -693,6 +694,22 @@ input.valid {
     input {
         transition: border 0.3s ease, box-shadow 0.3s ease;
     }
+/* Position the icon exactly where you drew the white circle */
+.validation-icon {
+    position: absolute;
+    right: 14px;      /* Pushes it to the right edge */
+    top: 37px;        /* Pushes it down into the input field. *Tweak this number* depending on how tall your label is! */
+    color: rgb(230, 230, 230);     /* Set to white, as requested */
+    font-size: 18px;/* Adjust size to match your text */
+    opacity: 0;       /* Hidden by default */
+    pointer-events: none; /* Lets you click through it */
+    transition: opacity 0.42s ease;
+}
+
+/* Show the white checkmark when the input becomes valid */
+input.valid + .validation-icon {
+    opacity: 1;
+}
     /*=== Sucess notification ===*/
 /* Modal Overlay Background */
 .modal-overlay {
@@ -941,18 +958,21 @@ input.valid {
         <div class="form-group">
             <label>Full Name</label>
             <input type="text" id="fname" placeholder="The full name" required>
+            <i class="fa-solid fa-circle-check validation-icon"></i>
             <span class="error-text" id="nameError"></span>
         </div>
 
         <div class="form-group">
             <label>Email Address</label>
             <input type="email" id="emailadrs" placeholder="user@example.com" required>
+            <i class="fa-solid fa-circle-check validation-icon"></i>
             <span class="error-text" id="emailError"></span>
         </div>
 
         <div class="form-group">
             <label>Phone Number</label>
-            <input type="tel" id="phonenum" placeholder="+1 (555) 000-0000">
+            <input type="tel" id="phonenum" placeholder="+1 (555) 000-0000" required>
+            <i class="fa-solid fa-circle-check validation-icon"></i>
             <span class="error-text" id="phoneError"></span>
         </div>
 
@@ -960,6 +980,7 @@ input.valid {
             <label>Date of Birth</label>
             <input type="date" id="dob">
             <span class="error-text" id="dobError"></span>
+            <i class="fa-solid fa-circle-check validation-icon"></i>
         </div>
 
         <div class="plan-selector" id="planselect">

@@ -71,21 +71,27 @@ function showSuccess(input, errorElement) {
 
 function validateName() {
     const name = fullNameInput.value.trim();
-    if (name.length < 3) return showError(fullNameInput, nameError, 'Name must be at least 3 characters'), false;
+    if(name === "") return showError(fullNameInput, nameError, 'Full name is required'), false;
+    else if (name.length < 3) return showError(fullNameInput, nameError, 'Name must be at least 3 characters'), false;
     return showSuccess(fullNameInput, nameError), true;
 }
 
 function validateEmail() {
     const email = emailInput.value.trim();
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!emailRegex.test(email)) return showError(emailInput, emailError, 'Please enter a valid email'), false;
+    if(email === "") return showError(emailInput, emailError, 'Email address is required'), false;
+    else if (!emailRegex.test(email)) return showError(emailInput, emailError, 'Please enter a valid email'), false;
     return showSuccess(emailInput, emailError), true;
 }
 
 function validatePhone() {
     const phone = phoneInput.value.trim();
     const phoneRegex = /^\d{8,15}$/;
-    if (phone !== "" && !phoneRegex.test(phone)) return showError(phoneInput, phoneError, 'Phone must be 8-15 digits'), false;
+// 1. Check if it's empty
+    if (phone === "") return showError(phoneInput, phoneError, 'Phone number is required'), false;
+    // 2. Check if the format is wrong
+    else if (!phoneRegex.test(phone)) return showError(phoneInput, phoneError, 'Phone must be 8-15 digits'), false;
+    // 3. Only show success if both checks pass
     return showSuccess(phoneInput, phoneError), true;
 }
 
