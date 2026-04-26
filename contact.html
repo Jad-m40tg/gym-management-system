@@ -37,15 +37,18 @@
         <div class="contact-form">
             <form id="contactForm">
                 <label for="name">Name</label>
-                <input type="text" id="name">
+                <input type="text" id="name" required>
+                <i class="fa-solid fa-circle-check validation-icon"></i>
                 <span class="error-text" id="nameError"></span>
 
                 <label for="email">Email</label>
-                <input type="email" id="email">
+                <input type="email" id="email" required>
+                <i class="fa-solid fa-circle-check validation-icon"></i>
                 <span class="error-text" id="emailError"></span>
 
                 <label for="subject">Subject</label>
-                <input type="text" id="subject">
+                <input type="text" id="subject"required>
+                <i class="fa-solid fa-circle-check validation-icon"></i>
                 <span class="error-text" id="subjectError"></span>
 
                 <label for="message">Message</label>
@@ -356,6 +359,7 @@ body{
     max-width: 900px;
     margin-left: auto;
     margin-right: auto;
+    
 }
 
 /* The Card Style applied to both sides */
@@ -374,6 +378,7 @@ form {
     flex-direction: column;
     align-items: flex-start;
     width: 100%;
+    position: relative;
 }
 
 label {
@@ -602,6 +607,22 @@ input.invalid, textarea.invalid {
 
 input, textarea {
     transition: border 0.3s ease, box-shadow 0.3s ease;
+}
+/* Position the icon exactly where you drew the white circle */
+.validation-icon {
+    position: absolute;
+    right: 14px;      /* Pushes it to the right edge */
+    top: 45px;        /* Pushes it down into the input field. *Tweak this number* depending on how tall your label is! */
+    color: rgb(230, 230, 230);     /* Set to white, as requested */
+    font-size: 18px;/* Adjust size to match your text */
+    opacity: 0;       /* Hidden by default */
+    pointer-events: none; /* Lets you click through it */
+    transition: opacity 0.42s ease;
+}
+
+/* Show the white checkmark when the input becomes valid */
+input.valid + .validation-icon {
+    opacity: 1;
 }
 /*=== Sucess notification ===*/
 /* Modal Overlay Background */

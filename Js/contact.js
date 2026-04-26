@@ -31,7 +31,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function validateName() {
         const name = nameInput.value.trim();
-        if (name.length < 3) {
+        if(name === "") return showError(nameInput, nameError, 'Full name is required'), false;
+        else if (name.length < 3) {
             showError(nameInput, nameError, 'Name must be at least 3 characters.');
             return false;
         }
@@ -42,7 +43,8 @@ document.addEventListener('DOMContentLoaded', () => {
     function validateEmail() {
         const email = emailInput.value.trim();
         const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        if (!emailRegex.test(email)) {
+        if(email === "") return showError(emailInput, emailError, 'Email address is required'), false;
+        else if (!emailRegex.test(email)) {
             showError(emailInput, emailError, 'Please enter a valid email address.');
             return false;
         }
@@ -52,7 +54,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function validateSubject() {
         const subject = subjectInput.value.trim();
-        if (subject.length < 5) {
+        if(subject === "") return showError(subjectInput, subjectError, "Entering a subject is mandatory"), false;
+        else if (subject.length < 5) {
             showError(subjectInput, subjectError, 'Subject must be at least 5 characters.');
             return false;
         }
