@@ -614,16 +614,9 @@ input.invalid, textarea.invalid {
     font-size: 0.85rem;
     font-family: 'Inter', sans-serif;
     font-weight: 500;
-    display: block; /* JS will toggle this to 'block' */
-    visibility: hidden;
-    opacity: 0;
-    transition: opacity 0.3 ease, transform 0.3 ease;
-    transform: translateY(-5px);
-}
-.error-text.visible{
-    visibility: visible;
-    opacity: 1;
-    transform: translateY(0); /* Slide smoothly into place */
+    display: none; /* JS will toggle this to 'block' */
+    margin-top: -12px; /* Pulls it closer to the input */
+    margin-bottom: 15px;
 }
 
 input, textarea {
