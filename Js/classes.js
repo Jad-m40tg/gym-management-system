@@ -20,7 +20,7 @@ function renderTable(data) {
             <td>${item.day}</td>
             <td>${item.time}</td>
             <td>${item.duration}</td>
-            <td>${item.difficulty}</td>
+            <td><span class="badge-${item.difficulty.toLowerCase()}">${item.difficulty}</span></td>
         `;
         tableBody.appendChild(row);
     });

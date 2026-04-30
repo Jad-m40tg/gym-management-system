@@ -1,47 +1,223 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>[brandname] - Home</title>
-<!--<link rel="stylesheet" href="style.css">-->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Fitlife Gym - Classes</title>
+
+<style>
+
+/* ===== GLOBAL ===== */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500&display=swap');
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    background:#111;
+    color:white;
+    font-family:"Inter", sans-serif;
+}
+
+/* ===== TABLE SECTION ===== */
+.classes-section{
+    max-width:900px;
+    margin:60px auto;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background: #1a1a1a;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+th, td {
+  padding: 18px 22px;
+  text-align: left;
+  border-bottom: 1px solid #333;
+}
+
+th {
+  background-color: #252525;
+  color: #888;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+}
+
+tr:nth-child(even) {
+  background-color: #212121;
+}
+
+tr:hover {
+  background-color: #262626;
+  transform: scale(1.01);
+  transition: 0.2s;
+}
+
+/* ===== CLASS NAME ===== */
+.class-name {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: 500;
+}
+
+.class-icon {
+    font-size: 16px;
+    color: rgb(200,230,90);
+}
+
+/* ===== TRAINER ===== */
+td:nth-child(2) {
+    font-weight: 600;
+    color: #ddd;
+}
+
+/* ===== BADGES ===== */
+.badge {
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: 500;
+}
+
+/* COLORS */
+.beginner {
+    background: rgba(124,252,0,0.1);
+    color: #7CFC00;
+    border: 1px solid rgba(124,252,0,0.3);
+}
+
+.intermediate {
+    background: rgba(255,215,0,0.1);
+    color: #FFD700;
+    border: 1px solid rgba(255,215,0,0.3);
+}
+
+.advanced {
+    background: rgba(255,92,92,0.1);
+    color: #FF5C5C;
+    border: 1px solid rgba(255,92,92,0.3);
+}
+
+/* ===== SPOTS ===== */
+.spots {
+    font-weight: bold;
+    color: rgb(200,230,90);
+}
+
+</style>
+
+<script src="https://kit.fontawesome.com/d6c36e2854.js" crossorigin="anonymous"></script>
 </head>
 
 <body>
-    
-    <header>
-        <div class="logo">IRON<span>CORE</span></div>
-    <nav class="navbar">
-        <ul class="nav-links">
-            <li><a href="index.html" class="active">Home</a></li>
-            <li><a href="classes.html">Classes</a></li>
-            <li><a href="membership.html">Membership</a></li>
-            <li><a href="trainers.html">Trainers</a></li>
-            <li><a href="contact.html">Contact</a></li>
-        </ul>
-    </nav>
- 
-    </header>
 
-    <style>
-        .main-header {
-    display: flex;
-    justify-content: space-between; /* Pushes logo and nav apart */
-    align-items: center;
-    padding: 0 5%;
-    background-color: #000;
-    height: 80px;
-    position: sticky; /* Requirement for Part 2  */
-    top: 0;
-    z-index: 1000;
-}
+<section class="classes-section">
 
-.nav-links {
-    display: flex;
-    list-style: none;
-    gap: 30px; /* Modern way to space items */
-}
+<table>
+<thead>
+<tr>
+<th>Class Name</th>
+<th>Trainer</th>
+<th>Day</th>
+<th>Time</th>
+<th>Duration</th>
+<th>Difficulty</th>
+<th>Spots</th>
+</tr>
+</thead>
 
+<tbody>
 
-    </style>
+<tr>
+<td class="class-name">
+<i class="fa-solid fa-bolt class-icon"></i>
+HIIT Training
+</td>
+<td>Baki</td>
+<td>Monday</td>
+<td>18:00</td>
+<td>45 min</td>
+<td><span class="badge advanced">Advanced</span></td>
+<td class="spots">4/20</td>
+</tr>
+
+<tr>
+<td class="class-name">
+<i class="fa-solid fa-spa class-icon"></i>
+Yoga Flow
+</td>
+<td>Lara</td>
+<td>Tuesday</td>
+<td>10:00</td>
+<td>60 min</td>
+<td><span class="badge beginner">Beginner</span></td>
+<td class="spots">12/18</td>
+</tr>
+
+<tr>
+<td class="class-name">
+<i class="fa-solid fa-dumbbell class-icon"></i>
+Strength Training
+</td>
+<td>Chris</td>
+<td>Wednesday</td>
+<td>17:30</td>
+<td>60 min</td>
+<td><span class="badge intermediate">Intermediate</span></td>
+<td class="spots">8/15</td>
+</tr>
+
+<tr>
+<td class="class-name">
+<i class="fa-solid fa-hand-fist class-icon"></i>
+Boxing Conditioning
+</td>
+<td>Marc</td>
+<td>Thursday</td>
+<td>19:00</td>
+<td>50 min</td>
+<td><span class="badge advanced">Advanced</span></td>
+<td class="spots">6/16</td>
+</tr>
+
+<tr>
+<td class="class-name">
+<i class="fa-solid fa-circle-dot class-icon"></i>
+Pilates Core
+</td>
+<td>Sarah</td>
+<td>Friday</td>
+<td>11:00</td>
+<td>45 min</td>
+<td><span class="badge beginner">Beginner</span></td>
+<td class="spots">10/14</td>
+</tr>
+
+<tr>
+<td class="class-name">
+<i class="fa-solid fa-fire class-icon"></i>
+Functional Training
+</td>
+<td>Alex</td>
+<td>Saturday</td>
+<td>16:00</td>
+<td>60 min</td>
+<td><span class="badge intermediate">Intermediate</span></td>
+<td class="spots">7/18</td>
+</tr>
+
+</tbody>
+</table>
+
+</section>
+
 </body>
+</html>

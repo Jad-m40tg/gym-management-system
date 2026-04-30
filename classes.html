@@ -288,14 +288,25 @@ tr:hover {
   transition: 0.2s ease;
 }
 
-tr:last-child td {
+/*tr:last-child td {
   border-bottom: solid 2px rgb(200,230,90);
 }
-
-td:last-child {
+  td:last-child {
   font-weight: bold;
   color: rgb(200,230,90);
+}*/
+td:last-child {
+  font-weight: bold;
 }
+
+/* let badges control their own color */
+td:last-child .badge-beginner,
+td:last-child .badge-intermediate,
+td:last-child .badge-advanced {
+  color: inherit; /* remove forced green */
+}
+
+
 
 /* ===== CLASS LINKS ===== */
 
@@ -307,7 +318,37 @@ td a{
 td a:hover{
     color:rgb(200,230,90);
 }
+/*the difficulty badges*/
 
+.badge-beginner,
+.badge-intermediate,
+.badge-advanced {
+    display: inline-block !important;
+    padding: 6px 14px !important;
+    border-radius: 20px !important;
+    font-size: 13px !important;
+    font-weight: 500 !important;
+    line-height: 1 !important;
+}
+
+/* COLORS */
+.badge-beginner {
+    background-color: rgba(124,252,0,0.25) !important;
+    color: #7CFC00 !important;
+    border: 1px solid rgba(124,252,0,0.6) !important;
+}
+
+.badge-intermediate {
+    background-color: rgba(255,215,0,0.25) !important;
+    color: #FFD700 !important;
+    border: 1px solid rgba(255,215,0,0.6) !important;
+}
+
+.badge-advanced {
+    background-color: rgba(255,92,92,0.25) !important;
+    color: #FF5C5C !important;
+    border: 1px solid rgba(255,92,92,0.6) !important;
+}
 /* ===== FILTER NOTE ===== */
 
 .filter-note{
@@ -540,7 +581,7 @@ display: flex; gap: 10px; margin-bottom: 20px;
                     <td>Monday</td>
                     <td>18:00</td>
                     <td>45 min</td>
-                    <td>Advanced</td>
+                    <td><span class="badge-advanced">Advanced</span></td>
                 </tr>
 
                 <tr>
@@ -549,7 +590,7 @@ display: flex; gap: 10px; margin-bottom: 20px;
                     <td>Tuesday</td>
                     <td>10:00</td>
                     <td>60 min</td>
-                    <td>Beginner</td>
+                    <td><span class="badge-beginner">Beginner</span></td>
                 </tr>
 
                 <tr>
@@ -558,7 +599,7 @@ display: flex; gap: 10px; margin-bottom: 20px;
                     <td>Wednesday</td>
                     <td>17:30</td>
                     <td>60 min</td>
-                    <td>Intermediate</td>
+                    <td><span class="badge-intermediate">Intermediate</span></td>
                 </tr>
 
                 <tr>
@@ -567,7 +608,7 @@ display: flex; gap: 10px; margin-bottom: 20px;
                     <td>Thursday</td>
                     <td>19:00</td>
                     <td>50 min</td>
-                    <td>Advanced</td>
+                    <td><span class="badge-advanced">Advanced</span></td>
                 </tr>
 
                 <tr>
@@ -576,7 +617,7 @@ display: flex; gap: 10px; margin-bottom: 20px;
                     <td>Friday</td>
                     <td>11:00</td>
                     <td>45 min</td>
-                    <td>Beginner</td>
+                    <td><span class="badge-beginner">Beginner</span></td>
                 </tr>
 
                 <tr>
@@ -585,7 +626,7 @@ display: flex; gap: 10px; margin-bottom: 20px;
                     <td>Saturday</td>
                     <td>16:00</td>
                     <td>60 min</td>
-                    <td>Intermediate</td>
+                    <td><span class="badge-intermediate">Intermediate</span></td>
                 </tr>
 
         </tbody>
