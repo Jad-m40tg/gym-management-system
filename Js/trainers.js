@@ -1,12 +1,12 @@
 const trainersData = [
     {
         id: 1,
-        name: "Oussama Bin Ladin",
-        specialty: "flying high",
-        experience: "9/11y",
-        bio: "hitting twin towers n' leanin'",
-        img: "Osama_bin_Laden.png",
-        fullDetails: "Detailed bio goes here. 9/11 remake ? (yes)"
+        name: "a cat trainer",
+        specialty: "napping",
+        experience: "1y",
+        bio: "meow",
+        img: "idiot.png",
+        fullDetails: "lol"
     },
     {
         id: 2,
@@ -80,7 +80,7 @@ const trainersData = [
         img: "anomymous_trainer_pfp.jpg",
         fullDetails: "More details about this coach here."
     },
-    // I added two to show the loop, but you can copy/paste this block to add all 8!
+
 ];
 
 function renderTrainers(list) {
