@@ -5,71 +5,62 @@ const trainersData = [
         specialty: "napping",
         experience: "1y",
         bio: "meow",
-        img: "idiot.png",
+        img: "idiotcat.png",
         fullDetails: "lol"
     },
     {
         id: 2,
-        name: "Coache's Name",
-        specialty: "something",
-        experience: "0y",
-        bio: "a quote",
+        name: "Baki Hanma",
+        specialty: "HIIT Training",
+        experience: "5y",
+        bio: "High-intensity specialist focused on explosive power and endurance.",
         img: "anomymous_trainer_pfp.jpg",
-        fullDetails: "More details about this coach here."
+        fullDetails: "Baki specializes in metabolic conditioning and plyometrics. His \"no-limit\" approach is designed for those looking to break through physical plateaus."
     },
         {
         id: 3,
-        name: "Coache's Name",
-        specialty: "something",
-        experience: "0y",
-        bio: "a quote",
+        name: "Lara Croft",
+        specialty: "Yoga Flow",
+        experience: "4y",
+        bio: "World-class explorer focusing on agility, endurance, and precision.",
         img: "anomymous_trainer_pfp.jpg",
-        fullDetails: "More details about this coach here."
-    },
-        {
-        id: 3,
-        name: "Coache's Name",
-        specialty: "something",
-        experience: "0y",
-        bio: "a quote",
-        img: "anomymous_trainer_pfp.jpg",
-        fullDetails: "More details about this coach here."
+        fullDetails: "Draws from years of field experience. Her \"Yoga Flow\" focuses on functional mobility and the core strength required to navigate any environment."
     },
         {
         id: 4,
-        name: "Coache's Name",
-        specialty: "something",
-        experience: "0y",
-        bio: "a quote",
+        name: "Chris Redfield",
+        specialty: "Strength Training",
+        experience: "6y",
+        bio: "Tactical strength veteran. Expert in heavy-duty resistance training.",
         img: "anomymous_trainer_pfp.jpg",
-        fullDetails: "More details about this coach here."
+        fullDetails: "Former special operations trainer. He prioritizes structural integrity and high-volume lifting to build a frame capable of handling any crisis."
     },
         {
         id: 5,
-        name: "Coache's Name",
-        specialty: "something",
-        experience: "0y",
-        bio: "a quote",
+        name: "Marc Spector",
+        specialty: "Boxing Conditioning",
+        experience: "4y",
+        bio: "Multi-disciplined combat expert specializing in high-stakes conditioning.",
         img: "anomymous_trainer_pfp.jpg",
-        fullDetails: "More details about this coach here."
+        fullDetails: "Combines boxing, savate, and street-fighting techniques. His sessions are high-intensity and focus on split-second reaction times and mental focus."
     },
         {
         id: 6,
-        name: "Coache's Name",
-        specialty: "something",
-        experience: "0y",
-        bio: "a quote",
+        name: "Sarah Connor",
+        specialty: "Pilates Core",
+        experience: "3y",
+        bio: "Survivalist coach focused on functional core and mental resilience.",
         img: "anomymous_trainer_pfp.jpg",
-        fullDetails: "More details about this coach here."
+        fullDetails: "Specializes in high-intensity survival training. Her Pilates Core sessions are designed to build a body that is as lean and efficient as it is durable."
     },
         {
         id: 7,
-        name: "Coache's Name",
-        specialty: "something",
-        experience: "0y",
-        bio: "a quote",
+        name: "Alex Mercer",
+        specialty: "Functional Training",
+        experience: "7y",
+        bio: "Biological mobility expert. Focuses on total-body adaptability.",
         img: "anomymous_trainer_pfp.jpg",
-        fullDetails: "More details about this coach here."
+        fullDetails: "Focuses on shifting body weight and parkour-style movements. His classes teach you how to treat your environment as your personal training ground.More details about this coach here."
     },
         {
         id: 8,
@@ -80,6 +71,15 @@ const trainersData = [
         img: "anomymous_trainer_pfp.jpg",
         fullDetails: "More details about this coach here."
     },
+        {
+        id: 9,
+        name: "Coache's Name",
+        specialty: "something",
+        experience: "0y",
+        bio: "a quote",
+        img: "anomymous_trainer_pfp.jpg",
+        fullDetails: "More details about this coach here."
+    }
 
 ];
 

@@ -6,11 +6,11 @@ const gymClasses = [
     { name: "Pilates Core", trainer: "Sarah", day: "Friday", time: "11:00", duration: "45 min", difficulty: "Beginner" },
     { name: "Functional Training", trainer: "Alex", day: "Saturday", time: "16:00", duration: "60 min", difficulty: "Intermediate" }
 ];
-let currentSort = { column: null, direction: 'asc' };
-// 2. Render table rows dynamically using DOM manipulation
+let currentSort = { column: null, direction: 'asc' }; //object for controlling sorting behavior
+//Render table rows dynamically using DOM manipulation
 function renderTable(data) {
     const tableBody = document.getElementById('class-table-body');
-    tableBody.innerHTML = ''; // Clear current rows
+    tableBody.innerHTML = ''; // clears the table before re-rendering 
 
     data.forEach(item => {
         const row = document.createElement('tr');
@@ -22,17 +22,17 @@ function renderTable(data) {
             <td>${item.duration}</td>
             <td><span class="badge-${item.difficulty.toLowerCase()}">${item.difficulty}</span></td>
         `;
-        tableBody.appendChild(row);
+        tableBody.appendChild(row); //adds row to the table
     });
 }
 
-// 3. Sorting Logic
+// Sorting Logic
 function setSort(column) {
     if (currentSort.column === column) {
-        currentSort.direction = currentSort.direction === 'asc' ? 'desc' : 'asc';
+        currentSort.direction = currentSort.direction === 'asc' ? 'desc' : 'asc'; //if ascending order switch to decending
     } else {
         currentSort.column = column;
-        currentSort.direction = 'asc';
+        currentSort.direction = 'asc'; //reset to asc
     }
     sortAndFilter();
 }
@@ -42,7 +42,7 @@ function sortAndFilter() {
     const searchTerm = document.getElementById('classSearch').value.toLowerCase();
     const difficulty = document.getElementById('difficultyFilter').value.toLowerCase();
 
-    // Filter
+    // filter() returns new array, and c: current obj for each class
     let filtered = gymClasses.filter(c => {
         const matchesSearch = c.name.toLowerCase().includes(searchTerm) || c.trainer.toLowerCase().includes(searchTerm);
         const matchesDiff = difficulty === 'all' || c.difficulty.toLowerCase() === difficulty;

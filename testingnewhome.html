@@ -488,7 +488,7 @@ i{
         </div>
     </a>
     <div class="nav-links">
-        <a href="testing5.html" class="active-page">Home</a>
+        <a href="testingnewhome.html" class="active-page">Home</a>
         <a href="classes.html">Classes</a>
         <a href="testing3.html">Membership</a>
         <a href="trainers.html">Trainers</a>
@@ -592,8 +592,8 @@ i{
             entries.forEach((entry) => {
                 if (entry.isIntersecting) {
                     entry.target.classList.add('show-card');
-                    // Optional: Stop observing once it's visible so it doesn't re-animate when scrolling up
-                    //observer.unobserve(entry.target); 
+                    // Stop observing once it's visible so it doesn't re-animate when scrolling up
+                    observer.unobserve(entry.target); 
                 }
             });
         }, { 

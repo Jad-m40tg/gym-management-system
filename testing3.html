@@ -436,7 +436,9 @@ body{
     border-color: rgba(200, 230, 90, 0.468);
     box-shadow: 0 0 5px rgba(200, 230, 90, 0.116);
 }
-
+input[type="date"]::-webkit-calendar-picker-indicator { /*to make the callendar icon visible*/
+    filter: invert(1);
+}
 /* Plan Selection (Radios) */
 .plan-selector {
     grid-column: span 2;
@@ -800,7 +802,7 @@ input.valid + .validation-icon {
         </div>
     </a>
     <div class="nav-links">
-        <a href="testing5.html">Home</a>
+        <a href="testingnewhome.html">Home</a>
         <a href="classes.html">Classes</a>
         <a href="testing3.html" class="active-page">Membership</a>
         <a href="trainers.html">Trainers</a>
