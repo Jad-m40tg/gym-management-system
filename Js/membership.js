@@ -17,17 +17,13 @@ const dobError = document.getElementById('dobError');
 const planError = document.getElementById('planError');
 const termsError = document.getElementById('termsError');
 
-// ============================================
-// PART 1: Plan Selection & Session Storage
-// ============================================
+// Plan selection & session storage
 
-// Since your "Join Now" buttons are inside <a> tags, 
-// we will intercept the click to save the plan choice
 document.querySelectorAll('.pricing-card .btn').forEach(btn => {
     btn.addEventListener('click', function(e) {
         // Find the card container
         const card = this.closest('.pricing-card');
-        const planName = card.querySelector('h2').textContent.split(' ')[0].toLowerCase(); // "bronze", "silver", etc.
+        const planName = card.querySelector('h2').textContent.split(' ')[0].toLowerCase(); // "bronze", "silver"....
         const planPrice = card.querySelector('.price').textContent;
 
         const planData = {
@@ -52,9 +48,7 @@ function syncSelectedPlan() {
     }
 }
 
-// ============================================
-// PART 2: Form Validation Logic
-// ============================================
+// Form Validation Logic
 
 function showError(input, errorElement, message) {
     input.classList.add('invalid');
@@ -87,11 +81,11 @@ function validateEmail() {
 function validatePhone() {
     const phone = phoneInput.value.trim();
     const phoneRegex = /^\d{8,15}$/;
-// 1. Check if it's empty
+// Check if it's empty
     if (phone === "") return showError(phoneInput, phoneError, 'Phone number is required'), false;
-    // 2. Check if the format is wrong
+    // Check if the format is wrong
     else if (!phoneRegex.test(phone)) return showError(phoneInput, phoneError, 'Phone must be 8-15 digits'), false;
-    // 3. Only show success if both checks pass
+    // Only show success if both checks pass
     return showSuccess(phoneInput, phoneError), true;
 }
 
@@ -109,9 +103,7 @@ function validateDOB() {
     return showSuccess(dobInput, dobError), true;
 }
 
-// ============================================
-// PART 3: Event Listeners
-// ============================================
+//Event Listeners
 
 // Real-time validation
 fullNameInput.addEventListener('input', validateName);
