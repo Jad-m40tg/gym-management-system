@@ -8,21 +8,24 @@
 </head>
 <script src="https://kit.fontawesome.com/d6c36e2854.js" crossorigin="anonymous"></script>
 <body>
-    <nav class="navbar">
-    <a href="testingnewhome.html" class="logo-link"> 
+    <!-- ===== NAVBAR ===== -->
+<nav class="navbar">
+    <a href="testingnewhome.html" class="logo-link">
         <div class="logo">
             <img src="gym_suggested_logo-removebg-preview.png" alt="FitLife Logo" class="img-logo">
             <span>FitLife Gym</span>
         </div>
     </a>
-        <div class="nav-links">
+    <div class="nav-links">
         <a href="testingnewhome.html">Home</a>
+        <a href="exos.html">Exercises</a>
         <a href="classes.html">Classes</a>
+        <a href="book-class.html">Book</a>
         <a href="testing3.html">Membership</a>
-        <a href="trainers.html" class="active-page">Trainers</a>
+        <a href="trainers.html"class="active-page">Trainers</a>
         <a href="contact.html">Contact</a>
-        </div>
-    </nav>
+    </div>
+</nav>
 <main>
     <section class="trainers_title">
         <h3>Meet Your Transformation Team </h3>
@@ -242,6 +245,11 @@ body{ /*(trainers.html)*/
     background-color: rgba(210, 240, 90, 0.925); 
     border-radius: 22px;
     border: 1.6px solid rgb(0, 0, 0);
+}
+.nav-links a.active-page:hover { 
+    color: rgb(0,0,0);
+    background-color: rgba(255,255,255,0.897); 
+    border-radius: 22px; 
 }
 @media (max-width:768px){
     .nav-links a.active-page {
