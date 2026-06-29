@@ -1,0 +1,106 @@
+<style>
+  /* Mock container matching your dark gym UI theme */
+  .preview-card {
+    background: #121212;
+    border-radius: 24px;
+    padding: 24px;
+    width: 340px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #ffffff;
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+  }
+
+  /* 3. UPGRADED MUSCLE TAGS: Sleek, athletic pill tags with soft accent borders */
+  .tag-container {
+    display: flex;
+    gap: 8px;
+    justify-content: center;
+    margin-bottom: 20px;
+  }
+  .muscle-tag {
+    background: rgba(163, 230, 53, 0.03);        /* Ultra-subtle lime background */
+    border: 1px solid rgba(163, 230, 53, 0.25);  /* Muted lime-green outline */
+    color: #a3e635;                              /* Bright lime accent text */
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;                   /* Clean, premium look */
+    letter-spacing: 0.06em;
+    padding: 5px 12px;
+    border-radius: 9999px;
+  }
+
+  /* 1. FIXED ALIGNMENT: CSS Grid forcing everything into clean, straight columns */
+  .stats-box {
+    background: rgba(255, 255, 255, 0.02);
+    border-radius: 16px;
+    padding: 16px;
+    margin-bottom: 20px;
+    
+    display: grid;
+    grid-template-columns: 24px 90px 1fr;        /* Explicit columns: Icon | Fixed Label | Value */
+    row-gap: 12px;
+    column-gap: 8px;
+    align-items: center;
+  }
+
+  .stat-icon {
+    color: #a3e635;                              /* Unified icon colors with theme */
+    display: flex;
+    align-items: center;
+  }
+  .stat-label {
+    color: #a3e635;
+    font-weight: 600;
+    font-size: 0.85rem;
+  }
+  .stat-value {
+    color: #e2e8f0;                              /* Crisp off-white for data readability */
+    font-size: 0.85rem;
+    font-weight: 500;
+  }
+
+  /* 2. THE CLEAN QUOTE: Normal style, thin weight, readable slate-gray */
+  .card-description {
+    font-style: normal;                          /* Say goodbye to cheap italics */
+    font-weight: 300;                            /* Modern, clean thin weight */
+    color: #94a3b8;                              /* Premium slate-gray color */
+    font-size: 0.88rem;
+    line-height: 1.5;
+    text-align: center;
+    padding: 0 10px;
+    margin-bottom: 8px;
+  }
+</style>
+
+<div class="preview-card">
+  <!-- Muscle Tags Preview -->
+  <div class="tag-container">
+    <span class="muscle-tag">Chest</span>
+    <span class="muscle-tag">Shoulders</span>
+    <span class="muscle-tag">Triceps</span>
+  </div>
+
+  <!-- Stats Grid Preview -->
+  <div class="stats-box">
+    <!-- Row 1 -->
+    <div class="stat-icon">🔥</div>
+    <div class="stat-label">Burns</div>
+    <div class="stat-value">300–400 kcal/hr</div>
+
+    <!-- Row 2 -->
+    <div class="stat-icon">🕒</div>
+    <div class="stat-label">Session</div>
+    <div class="stat-value">20–30 min</div>
+
+    <!-- Row 3 -->
+    <div class="stat-icon">📅</div>
+    <div class="stat-label">Frequency</div>
+    <div class="stat-value">3–4× / week</div>
+  </div>
+
+  <!-- Description Preview -->
+  <p class="card-description">
+    "The ultimate bodyweight staple — zero equipment, maximum results."
+  </p>
+</div>
