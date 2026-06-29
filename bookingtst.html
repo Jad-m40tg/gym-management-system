@@ -1,0 +1,950 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FitLife Gym – Book a Class</title>
+    <script src="https://kit.fontawesome.com/d6c36e2854.js" crossorigin="anonymous"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900&display=swap');
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            background-image: linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.68)), url("classes_bg.png");
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            background-color: #0e0e0e;
+            color: white;
+            font-family: "Inter", sans-serif;
+            font-weight: 400;
+            overflow-x: hidden;
+        }
+
+        /* ===== NAVBAR ===== */
+        .navbar {
+            display: flex;
+            position: sticky;
+            top: 0;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 26px;
+            background-color: #110f0f5f;
+            border: 2px rgba(41,41,41,0.795) solid;
+            border-radius: 18px;
+            margin-top: 16px;
+            backdrop-filter: blur(6.83px);
+            -webkit-backdrop-filter: blur(6.83px);
+            transform: scale(0.989);
+            z-index: 1000;
+        }
+        .logo { display: flex; align-items: center; gap: 4px; font-size: 20px; font-weight: bold; font-family: "Inter", sans-serif; margin-left: 1px; }
+        .img-logo { width: 52px; height: 52px; }
+        .logo-link { text-decoration: none; color: inherit; display: flex; align-items: center; }
+        .logo-link:hover { opacity: 0.8; transition: 0.3s; }
+        .nav-links { display: flex; align-items: center; gap: 10px; }
+        .nav-links a {
+            text-decoration: none;
+            color: rgba(255,255,255,0.872);
+            font-weight: 400;
+            font-family: 'Kanit', sans-serif;
+            padding: 6px 12px;
+            transition: all 0.346s ease;
+            font-size: 15px;
+            border: 1.6px solid rgba(255,255,255,0.694);
+            border-radius: 9.8px;
+            white-space: nowrap;
+        }
+        .nav-links a:hover { color: #000; background-color: rgba(255,255,255,0.897); border-radius: 22px; }
+        .nav-links a.active-page { color: #000; background-color: rgba(210,240,90,0.925); border-radius: 22px; border-color: #000; }
+        .nav-links a.active-page:hover { background-color: rgba(255,255,255,0.897); }
+
+        @media (max-width: 768px) {
+            .logo span { display: block; font-size: 15px; line-height: 1.1; max-width: 55px; }
+            .navbar { justify-content: flex-start; gap: 8px; padding: 10px 15px; }
+            .nav-links {
+                flex: 1; overflow-x: auto; white-space: nowrap; scrollbar-width: none;
+                -webkit-overflow-scrolling: touch;
+                -webkit-mask-image: linear-gradient(to right, black 65%, transparent 100%);
+                mask-image: linear-gradient(to right, black 65%, transparent 100%);
+                padding-right: 50px;
+            }
+            .nav-links a { color: #000; background-color: rgba(255,255,255,0.83); border-radius: 22px; font-weight: 500; }
+            .nav-links::-webkit-scrollbar { display: none; }
+        }
+
+        /* ===== PAGE HEADER ===== */
+        .page-header { text-align: center; margin-top: 60px; }
+        .page-header h1 {
+            font-size: clamp(40px, 7vw, 52px);
+            font-family: "Kanit", sans-serif;
+            font-weight: 400;
+            padding: 30px 30px 10px;
+            background: linear-gradient(-90deg, #FFFFFF 0%, rgb(168,202,48) 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .page-header p { color: #bbb; font-weight: 400; padding: 0 16px 16px; font-size: 15px; }
+
+        /* ===== STATS BAR ===== */
+        .stats-bar {
+            display: flex;
+            justify-content: center;
+            gap: 28px;
+            padding: 20px 32px;
+            background-color: rgba(16,16,16,0.3);
+            backdrop-filter: blur(10px);
+            border-top: 1px solid rgba(255,255,255,0.1);
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            color: #c4c4c4;
+            font-family: 'Kanit', sans-serif;
+            font-size: 14px;
+            flex-wrap: wrap;
+            margin-top: 20px;
+            gap: 20px;
+        }
+        .stats-bar strong { color: rgb(210,240,90); }
+        .stats-divider { color: rgba(255,255,255,0.2); }
+
+        /* ===== FILTER WRAPPER ===== */
+        .filter-wrapper {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 14px;
+            padding: 28px 40px 0;
+            max-width: 1300px;
+            margin: 0 auto;
+        }
+        .day-pills {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        .day-pill {
+            padding: 8px 20px;
+            background: rgba(255,255,255,0.04);
+            border: 1.5px solid rgba(255,255,255,0.12);
+            border-radius: 24px;
+            color: #aaa;
+            font-family: 'Kanit', sans-serif;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.22s ease;
+        }
+        .day-pill:hover { border-color: rgba(200,230,90,0.5); color: white; background: rgba(200,230,90,0.06); }
+        .day-pill.active { background: rgb(200,230,90); border-color: rgb(200,230,90); color: #000; font-weight: 600; }
+
+        .filter-bottom-row {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        .filter-bottom-row select {
+            padding: 9px 18px;
+            background: rgba(2,2,2,0.8);
+            border: 1.5px solid rgba(255,255,255,0.15);
+            border-radius: 24px;
+            color: #c4c4c4;
+            font-family: 'Kanit', sans-serif;
+            font-size: 14px;
+            outline: none;
+            cursor: pointer;
+            transition: all 0.25s ease;
+        }
+        .filter-bottom-row select:hover, .filter-bottom-row select:focus { border-color: rgba(200,230,90,0.6); color: white; }
+        .filter-bottom-row select option { background: #1a1a1a; }
+        .results-info-top {
+            color: #666;
+            font-size: 13px;
+            font-family: 'Kanit', sans-serif;
+        }
+        .results-info-top span { color: rgb(210,240,90); font-weight: 600; }
+
+        /* ===== MAIN LAYOUT ===== */
+        .booking-container {
+            display: grid;
+            grid-template-columns: 1fr 360px;
+            gap: 28px;
+            padding: 28px 40px 80px;
+            max-width: 1300px;
+            margin: 0 auto;
+            align-items: start;
+        }
+
+        @media (max-width: 960px) {
+            .booking-container { grid-template-columns: 1fr; padding: 20px 16px 60px; }
+            .filter-wrapper { padding: 20px 16px 0; }
+        }
+
+        /* ===== MAIN CARD ===== */
+        .booking-main-card {
+            background-color: #151515;
+            border: 2px solid rgba(255,255,255,0.07);
+            border-radius: 27px;
+            overflow: hidden;
+        }
+        .main-card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 24px 32px 20px;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+        }
+        .main-card-header h2 {
+            font-family: 'Inter', sans-serif;
+            font-size: 18px;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .main-card-header h2 i { color: rgb(210,240,90); }
+        .main-card-header .results-count {
+            color: #555;
+            font-size: 12px;
+            font-family: 'Kanit', sans-serif;
+        }
+        .main-card-header .results-count span { color: rgb(210,240,90); }
+
+        /* ===== CLASS CARD ===== */
+        .class-list { display: flex; flex-direction: column; }
+
+        .class-card {
+            display: grid;
+            grid-template-columns: 82px 1fr auto;
+            gap: 18px;
+            padding: 20px 30px;
+            border-bottom: 1px solid rgba(255,255,255,0.04);
+            cursor: pointer;
+            transition: background 0.2s ease;
+            position: relative;
+        }
+        .class-card:last-child { border-bottom: none; }
+        .class-card:hover { background: rgba(255,255,255,0.02); }
+        .class-card.selected { background: rgba(200,230,90,0.04); }
+        .class-card.selected::before {
+            content: '';
+            position: absolute;
+            left: 0; top: 0; bottom: 0;
+            width: 3px;
+            background: rgb(200,230,90);
+        }
+        .class-card.is-full { opacity: 0.45; pointer-events: none; }
+
+        /* Left column: time + icon + badge */
+        .cc-left {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+            padding-top: 2px;
+            flex-shrink: 0;
+        }
+        .cc-time {
+            font-family: 'Kanit', sans-serif;
+            font-size: 20px;
+            font-weight: 600;
+            color: rgb(210,240,90);
+            line-height: 1;
+        }
+        .cc-icon {
+            width: 38px;
+            height: 38px;
+            border-radius: 50%;
+            background: rgba(210,240,90,0.07);
+            border: 1px solid rgba(210,240,90,0.18);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+        .cc-icon i { color: rgb(210,240,90); font-size: 15px; }
+
+        /* Center column: all class info */
+        .cc-body { display: flex; flex-direction: column; gap: 5px; min-width: 0; }
+        .cc-name { font-size: 16px; font-weight: 700; color: #fff; font-family: 'Inter', sans-serif; }
+        .cc-trainer {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            color: #777;
+            font-size: 12.5px;
+        }
+        .cc-trainer i { color: rgb(210,240,90); font-size: 10px; }
+        .cc-desc { color: #555; font-size: 12px; line-height: 1.6; max-width: 460px; }
+        .cc-meta {
+            display: flex;
+            gap: 14px;
+            margin-top: 2px;
+        }
+        .cc-meta span {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            color: #666;
+            font-size: 12px;
+        }
+        .cc-meta i { color: rgb(210,240,90); font-size: 10px; }
+
+        /* Spots bar */
+        .spots-wrap { margin-top: 8px; }
+        .spots-label-row {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 5px;
+        }
+        .spots-status { font-size: 11px; color: #666; }
+        .spots-fraction { font-size: 11px; color: #555; }
+        .spots-track {
+            height: 3px;
+            background: rgba(255,255,255,0.06);
+            border-radius: 10px;
+            overflow: hidden;
+            max-width: 220px;
+            width: 100%;
+        }
+        .spots-fill { height: 100%; border-radius: 10px; }
+
+        /* Right column: price + button */
+        .cc-right {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            gap: 10px;
+            padding-top: 2px;
+            flex-shrink: 0;
+            min-width: 80px;
+        }
+        .cc-price {
+            font-family: 'Kanit', sans-serif;
+            font-size: 17px;
+            font-weight: 600;
+            color: white;
+            text-align: right;
+            white-space: nowrap;
+        }
+        .cc-price small { display: block; font-size: 10px; color: #555; font-weight: 400; }
+
+        .btn-select {
+            background: transparent;
+            color: rgb(200,230,90);
+            border: 1.5px solid rgba(200,230,90,0.6);
+            padding: 7px 16px;
+            border-radius: 20px;
+            font-family: 'Inter', sans-serif;
+            font-weight: 600;
+            font-size: 12px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            white-space: nowrap;
+        }
+        .btn-select:hover { background: rgba(200,230,90,0.1); border-color: rgb(200,230,90); }
+        .btn-select.is-selected { background: rgb(200,230,90); border-color: rgb(200,230,90); color: #000; }
+        .btn-select.is-full-btn { border-color: rgba(255,92,92,0.3); color: rgba(255,92,92,0.5); cursor: not-allowed; }
+
+        /* Badges */
+        .badge-beginner, .badge-intermediate, .badge-advanced {
+            display: inline-block;
+            padding: 3px 9px;
+            border-radius: 20px;
+            font-size: 10px;
+            font-weight: 700;
+            font-family: 'Inter', sans-serif;
+            letter-spacing: 0.3px;
+        }
+        .badge-beginner { background: rgba(124,252,0,0.12); color: #7CFC00; border: 1px solid rgba(124,252,0,0.35); }
+        .badge-intermediate { background: rgba(255,215,0,0.12); color: #FFD700; border: 1px solid rgba(255,215,0,0.35); }
+        .badge-advanced { background: rgba(255,92,92,0.12); color: #FF5C5C; border: 1px solid rgba(255,92,92,0.35); }
+
+        /* Empty state */
+        .empty-state { text-align: center; padding: 56px 20px; color: #444; }
+        .empty-state i { font-size: 36px; color: rgba(210,240,90,0.15); display: block; margin-bottom: 12px; }
+        .empty-state p { font-family: 'Kanit', sans-serif; font-size: 14px; color: #555; }
+        .empty-state a { color: rgb(210,240,90); text-decoration: none; font-size: 13px; display: inline-block; margin-top: 8px; }
+
+        /* ===== ASIDE (sticky) ===== */
+        .booking-side-card {
+            background-color: #151515;
+            border: 2px solid rgba(255,255,255,0.07);
+            border-radius: 27px;
+            overflow: hidden;
+            position: sticky;
+            top: 90px;
+            max-height: calc(100vh - 110px);
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+        }
+        .booking-side-card::-webkit-scrollbar { width: 3px; }
+        .booking-side-card::-webkit-scrollbar-thumb { background: rgba(210,240,90,0.25); border-radius: 10px; }
+
+        /* Selection panel */
+        .selection-panel { padding: 26px 26px 0; }
+
+        .no-selection-state {
+            text-align: center;
+            padding: 28px 12px 24px;
+            color: #444;
+        }
+        .no-selection-state i { font-size: 34px; color: rgba(210,240,90,0.15); display: block; margin-bottom: 10px; }
+        .no-selection-state h3 { font-size: 14px; color: #555; margin-bottom: 5px; font-weight: 600; }
+        .no-selection-state p { font-size: 12px; color: #444; line-height: 1.6; }
+
+        /* Selected class detail */
+        .selection-detail {
+            display: none;
+            flex-direction: column;
+            gap: 14px;
+        }
+        .sel-class-header { display: flex; align-items: center; gap: 12px; }
+        .sel-icon {
+            width: 46px;
+            height: 46px;
+            border-radius: 50%;
+            background: rgba(210,240,90,0.08);
+            border: 1.5px solid rgba(210,240,90,0.25);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+        .sel-icon i { color: rgb(210,240,90); font-size: 18px; }
+        .sel-class-name { font-size: 16px; font-weight: 700; color: white; margin-bottom: 3px; font-family: 'Inter', sans-serif; }
+        .sel-class-trainer { font-size: 12px; color: #777; }
+
+        .sel-rows {
+            background: rgba(0,0,0,0.25);
+            border: 1px solid rgba(255,255,255,0.05);
+            border-radius: 14px;
+            overflow: hidden;
+        }
+        .sel-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 16px;
+            border-bottom: 1px solid rgba(255,255,255,0.04);
+            font-size: 13px;
+        }
+        .sel-row:last-child { border-bottom: none; }
+        .sel-row span { color: #777; }
+        .sel-row strong { color: white; font-weight: 600; }
+        .sel-total-row { padding: 13px 16px; }
+        .sel-total-row span { color: #aaa; font-size: 14px; }
+        .sel-total-row strong { color: rgb(210,240,90); font-size: 20px; font-family: 'Kanit', sans-serif; }
+
+        /* Main btn */
+        .btn {
+            background-color: rgb(200,230,90);
+            color: #000;
+            padding: 13px 24px;
+            border: solid 2px #333;
+            border-radius: 30px;
+            font-family: 'Inter', sans-serif;
+            font-weight: 700;
+            font-size: 14px;
+            cursor: pointer;
+            transition: 0.27s ease;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+        .btn:hover { transform: translateY(-2px); background-color: rgb(210,240,90); }
+        .btn:active { transform: translateY(2px); }
+
+        /* Aside divider */
+        .aside-divider { height: 1px; background: rgba(255,255,255,0.05); margin: 20px 0; }
+
+        /* Policies */
+        .policies-section { padding: 0 26px 26px; }
+        .policies-title {
+            display: flex;
+            align-items: center;
+            gap: 7px;
+            font-family: 'Kanit', sans-serif;
+            font-size: 11px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: #555;
+            margin-bottom: 12px;
+        }
+        .policies-title i { color: rgb(210,240,90); }
+        .policy-item {
+            background: rgba(0,0,0,0.2);
+            border-radius: 12px;
+            padding: 13px 15px;
+            border: 1px solid rgba(255,255,255,0.04);
+            margin-bottom: 8px;
+        }
+        .policy-item:last-child { margin-bottom: 0; }
+        .policy-item h3 {
+            font-size: 12px;
+            color: #c4c4c4;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 7px;
+            margin-bottom: 5px;
+        }
+        .policy-item h3 i { color: rgb(210,240,90); font-size: 11px; }
+        .policy-item p { color: #555; font-size: 11.5px; line-height: 1.6; }
+
+        /* ===== FOOTER ===== */
+        .footer { background-color: #1a1a1a; color: #fff; padding: 20px 0; font-family: "Inter", sans-serif; text-align: center; border-top: 2px solid rgb(210,240,90); }
+        .footer-container { max-width: 1200px; margin: 0 auto; display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-start; padding: 20px; }
+        .footer-section { flex: 1; min-width: 150px; margin: 10px; text-align: left; }
+        .footer-section h4 { padding-bottom: 14px; font-family: 'Kanit', sans-serif; }
+        .footer ul { list-style: none; }
+        .footer ul li { margin: 6px 0; }
+        .footer a { color: #aaa; text-decoration: none; transition: 0.27s; }
+        .footer a:hover { color: rgb(210,240,90); }
+        .footer-section > a { margin-right: 10px; }
+        .copyright { margin-top: 10px; font-size: 13px; color: #555; }
+        .fa-facebook, .fa-x-twitter { color: rgb(200,230,90); font-size: 22px; transition: 0.3s ease; }
+        .fa-instagram { color: rgb(200,230,90); font-size: 21px; transition: 0.3s ease; }
+        .fa-facebook:hover, .fa-x-twitter:hover, .fa-instagram:hover { color: rgb(204,255,0); }
+
+        @media (max-width: 600px) {
+            .class-card { grid-template-columns: 64px 1fr auto; gap: 10px; padding: 16px 18px; }
+            .cc-desc { display: none; }
+            .spots-track { max-width: 120px; }
+            .cc-price small { display: none; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- ===== NAVBAR ===== -->
+<nav class="navbar">
+    <a href="testingnewhome.html" class="logo-link">
+        <div class="logo">
+            <img src="gym_suggested_logo-removebg-preview.png" alt="FitLife Logo" class="img-logo">
+            <span>FitLife Gym</span>
+        </div>
+    </a>
+    <div class="nav-links">
+        <a href="testingnewhome.html">Home</a>
+        <a href="exercises.html">Exercises</a>
+        <a href="classes.html">Classes</a>
+        <a href="book-class.html" class="active-page">Book</a>
+        <a href="testing3.html">Membership</a>
+        <a href="trainers.html">Trainers</a>
+        <a href="contact.html">Contact</a>
+    </div>
+</nav>
+
+<!-- ===== PAGE HEADER ===== -->
+<header class="page-header">
+    <h1>Reserve Your Spot</h1>
+    <p>Browse the week's schedule, choose your session, and lock in your place.</p>
+</header>
+
+<!-- ===== STATS BAR ===== -->
+<div class="stats-bar">
+    <span><strong>9</strong> Sessions This Week</span>
+    <span class="stats-divider">|</span>
+    <span><strong>Free Cancellation</strong> Up to 12h Before</span>
+    <span class="stats-divider">|</span>
+    <span><strong>Active Membership</strong> Required</span>
+</div>
+
+<!-- ===== FILTER ===== -->
+<div class="filter-wrapper">
+    <div class="day-pills" id="dayPills">
+        <button class="day-pill active" data-day="all">All Days</button>
+        <button class="day-pill" data-day="Monday">Mon</button>
+        <button class="day-pill" data-day="Tuesday">Tue</button>
+        <button class="day-pill" data-day="Wednesday">Wed</button>
+        <button class="day-pill" data-day="Thursday">Thu</button>
+        <button class="day-pill" data-day="Friday">Fri</button>
+        <button class="day-pill" data-day="Saturday">Sat</button>
+        <button class="day-pill" data-day="Sunday">Sun</button>
+    </div>
+    <div class="filter-bottom-row">
+        <select id="diffFilter" onchange="filterClasses()">
+            <option value="all">All Levels</option>
+            <option value="Beginner">Beginner</option>
+            <option value="Intermediate">Intermediate</option>
+            <option value="Advanced">Advanced</option>
+        </select>
+        <span class="results-info-top">Showing <span id="resultsCount">9</span> classes</span>
+    </div>
+</div>
+
+<!-- ===== MAIN LAYOUT ===== -->
+<main class="booking-container">
+
+    <!-- LEFT: Class Schedule -->
+    <section class="booking-main-card" aria-label="Class schedule">
+        <div class="main-card-header">
+            <h2><i class="fa-solid fa-calendar-check"></i> Class Schedule</h2>
+            <span class="results-count">
+                <span id="resultsCountCard">9</span> sessions found
+            </span>
+        </div>
+        <div class="class-list" id="classGrid"></div>
+    </section>
+
+    <!-- RIGHT: Sticky sidebar -->
+    <aside class="booking-side-card" aria-label="Booking details">
+
+        <div class="selection-panel">
+            <div class="no-selection-state" id="noSelectionState">
+                <i class="fa-regular fa-calendar-xmark"></i>
+                <h3>No Session Selected</h3>
+                <p>Click any class from the schedule to preview your booking details here.</p>
+            </div>
+            <div class="selection-detail" id="selectionDetail"></div>
+        </div>
+
+        <div class="aside-divider"></div>
+
+        <div class="policies-section">
+            <div class="policies-title">
+                <i class="fa-solid fa-shield-halved"></i> Gym Policies
+            </div>
+            <div class="policy-item">
+                <h3><i class="fa-solid fa-clock"></i> Arrive Early</h3>
+                <p>Arrive 10–15 minutes before your session. Late entries disrupt setup and forfeit your spot.</p>
+            </div>
+            <div class="policy-item">
+                <h3><i class="fa-solid fa-ban"></i> Cancellations</h3>
+                <p>Free cancellation up to 12 hours before. No-shows or late cancels forfeit the booking fee.</p>
+            </div>
+            <div class="policy-item">
+                <h3><i class="fa-solid fa-id-card"></i> What to Bring</h3>
+                <p>Clean training shoes, a personal towel, and your membership card. Equipment available to rent.</p>
+            </div>
+        </div>
+
+    </aside>
+
+</main>
+
+<!-- ===== FOOTER ===== -->
+<footer class="footer">
+    <div class="footer-container">
+        <div class="footer-section">
+            <h4>Quick Links</h4>
+            <ul>
+                <li><a href="testingnewhome.html">Home</a></li>
+                <li><a href="exercises.html">Exercises</a></li>
+                <li><a href="trainers.html">Our Trainers</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </div>
+        <div class="footer-section">
+            <h4>Contact</h4>
+            <p style="color:#aaa; font-size:13px; line-height:2;">
+                info@fitlife.dz<br>
+                +213 555 000 000<br>
+                123 Street, Algiers
+            </p>
+        </div>
+        <div class="footer-section">
+            <h4>Follow Us</h4>
+            <a href="https://www.x.com"><i class="fa-brands fa-x-twitter"></i></a>
+            <a href="https://www.instagram.com"><i class="fa-brands fa-instagram"></i></a>
+            <a href="https://www.facebook.com"><i class="fa-brands fa-facebook"></i></a>
+        </div>
+    </div>
+    <p class="copyright">© 2026 FitLife Gym. All rights reserved.</p>
+</footer>
+
+<script>
+// ===================================================
+// CLASS DATA (matches gym_management_db.sql exactly)
+// ===================================================
+const gymClasses = [
+    {
+        id: 1, name: "Morning Yoga Flow",
+        trainer: "Sarah Johnson", specialty: "Yoga & Pilates",
+        day: "Monday", time: "09:00", duration: 60,
+        difficulty: "Beginner", capacity: 15, booked: 10, price: 299,
+        icon: "fa-solid fa-spa",
+        description: "Start your week with intention. A gentle vinyasa flow to wake your body and set the tone for a strong week ahead."
+    },
+    {
+        id: 2, name: "HIIT Bootcamp",
+        trainer: "Mike Chen", specialty: "Strength & HIIT",
+        day: "Monday", time: "18:00", duration: 45,
+        difficulty: "Advanced", capacity: 20, booked: 18, price: 399,
+        icon: "fa-solid fa-fire",
+        description: "Maximum effort intervals that push your cardiovascular system to the limit. Come ready to sweat."
+    },
+    {
+        id: 3, name: "Zumba Dance",
+        trainer: "Emma Davis", specialty: "Cardio & Dance",
+        day: "Tuesday", time: "19:00", duration: 50,
+        difficulty: "Intermediate", capacity: 25, booked: 12, price: 299,
+        icon: "fa-solid fa-music",
+        description: "High-energy dance fitness. Burns serious calories while you have the time of your life. No experience needed."
+    },
+    {
+        id: 4, name: "Power Pilates",
+        trainer: "Sarah Johnson", specialty: "Yoga & Pilates",
+        day: "Wednesday", time: "10:00", duration: 55,
+        difficulty: "Intermediate", capacity: 12, booked: 9, price: 349,
+        icon: "fa-solid fa-circle-dot",
+        description: "Core-focused Pilates to build a strong, stable foundation and dramatically improve posture."
+    },
+    {
+        id: 5, name: "Strength & Conditioning",
+        trainer: "Mike Chen", specialty: "Strength & HIIT",
+        day: "Thursday", time: "17:00", duration: 60,
+        difficulty: "Advanced", capacity: 15, booked: 8, price: 399,
+        icon: "fa-solid fa-dumbbell",
+        description: "Heavy compound movements and structured conditioning work. Built for raw strength and athletic performance."
+    },
+    {
+        id: 6, name: "Boxing Conditioning",
+        trainer: "Baki Hanma", specialty: "Combat Sports",
+        day: "Thursday", time: "19:00", duration: 50,
+        difficulty: "Advanced", capacity: 18, booked: 15, price: 449,
+        icon: "fa-solid fa-hand-fist",
+        description: "Bag work, shadow boxing, and conditioning drills that will push every limit you thought you had."
+    },
+    {
+        id: 7, name: "Pilates Core",
+        trainer: "Sarah Johnson", specialty: "Yoga & Pilates",
+        day: "Friday", time: "11:00", duration: 45,
+        difficulty: "Beginner", capacity: 15, booked: 7, price: 299,
+        icon: "fa-solid fa-shield-halved",
+        description: "Beginner-friendly Pilates focused on core engagement, proper breathing, and body awareness."
+    },
+    {
+        id: 8, name: "Functional Training",
+        trainer: "Alex Mercer", specialty: "Functional Training",
+        day: "Saturday", time: "16:00", duration: 60,
+        difficulty: "Intermediate", capacity: 20, booked: 11, price: 349,
+        icon: "fa-solid fa-person-running",
+        description: "Movement-based training combining mobility, strength, and agility for real-world performance."
+    },
+    {
+        id: 9, name: "Sunday Recovery Flow",
+        trainer: "Lara Croft", specialty: "Yoga & Agility",
+        day: "Sunday", time: "10:00", duration: 60,
+        difficulty: "Beginner", capacity: 20, booked: 5, price: 249,
+        icon: "fa-solid fa-leaf",
+        description: "Restorative yoga and mobility work. The perfect active recovery session to close the week."
+    }
+];
+
+// ===================================================
+// STATE
+// ===================================================
+let selectedClassId = null;
+let activeDay = 'all';
+
+// ===================================================
+// HELPERS
+// ===================================================
+function getBadge(diff) {
+    return `badge-${diff.toLowerCase()}`;
+}
+
+function getSpotsInfo(cls) {
+    const spotsLeft = cls.capacity - cls.booked;
+    const fillPct = Math.round((cls.booked / cls.capacity) * 100);
+    let barColor, statusText;
+    if (spotsLeft === 0) {
+        barColor = 'rgba(255,92,92,0.9)';
+        statusText = 'Class Full';
+    } else if (fillPct >= 80) {
+        barColor = 'rgba(255,100,80,0.85)';
+        statusText = `Only ${spotsLeft} spot${spotsLeft > 1 ? 's' : ''} left!`;
+    } else if (fillPct >= 50) {
+        barColor = 'rgba(255,185,0,0.85)';
+        statusText = `${spotsLeft} spots remaining`;
+    } else {
+        barColor = 'rgba(200,230,90,0.85)';
+        statusText = `${spotsLeft} spots available`;
+    }
+    return { fillPct, barColor, statusText, spotsLeft };
+}
+
+// ===================================================
+// RENDER
+// ===================================================
+function renderClasses(data) {
+    const grid = document.getElementById('classGrid');
+    const count = data.length;
+    document.getElementById('resultsCount').textContent = count;
+    document.getElementById('resultsCountCard').textContent = count;
+
+    if (count === 0) {
+        grid.innerHTML = `
+            <div class="empty-state">
+                <i class="fa-solid fa-calendar-xmark"></i>
+                <p>No classes match your filters.</p>
+                <a href="#" onclick="resetFilters()">Clear filters and show all →</a>
+            </div>`;
+        return;
+    }
+
+    grid.innerHTML = data.map(cls => {
+        const info = getSpotsInfo(cls);
+        const isFull = info.spotsLeft === 0;
+        const isSelected = cls.id === selectedClassId;
+
+        return `
+        <article class="class-card${isSelected ? ' selected' : ''}${isFull ? ' is-full' : ''}"
+                 data-id="${cls.id}"
+                 onclick="${isFull ? '' : `selectClass(${cls.id})`}">
+            <div class="cc-left">
+                <div class="cc-time">${cls.time}</div>
+                <div class="cc-icon"><i class="${cls.icon}"></i></div>
+                <span class="${getBadge(cls.difficulty)}">${cls.difficulty}</span>
+            </div>
+            <div class="cc-body">
+                <h3 class="cc-name">${cls.name}</h3>
+                <p class="cc-trainer">
+                    <i class="fa-solid fa-user-tie"></i>
+                    ${cls.trainer} · ${cls.specialty}
+                </p>
+                <p class="cc-desc">${cls.description}</p>
+                <div class="cc-meta">
+                    <span><i class="fa-solid fa-hourglass-half"></i> ${cls.duration} min</span>
+                    <span><i class="fa-regular fa-calendar"></i> ${cls.day}</span>
+                </div>
+                <div class="spots-wrap">
+                    <div class="spots-label-row">
+                        <span class="spots-status">${info.statusText}</span>
+                        <span class="spots-fraction">${cls.capacity - cls.booked} / ${cls.capacity}</span>
+                    </div>
+                    <div class="spots-track">
+                        <div class="spots-fill" style="width:${info.fillPct}%; background:${info.barColor};"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="cc-right">
+                <div class="cc-price">${cls.price}<small>DZD</small></div>
+                <button class="btn-select${isSelected ? ' is-selected' : ''}${isFull ? ' is-full-btn' : ''}"
+                        id="selectBtn-${cls.id}"
+                        ${isFull ? 'disabled' : ''}
+                        onclick="event.stopPropagation(); ${isFull ? '' : `selectClass(${cls.id})`}">
+                    ${isFull ? 'Full' : isSelected ? '✓ Selected' : 'Select'}
+                </button>
+            </div>
+        </article>`;
+    }).join('');
+}
+
+// ===================================================
+// SELECTION
+// ===================================================
+function selectClass(id) {
+    // Deselect previous
+    if (selectedClassId) {
+        const prevCard = document.querySelector(`.class-card[data-id="${selectedClassId}"]`);
+        const prevBtn = document.getElementById(`selectBtn-${selectedClassId}`);
+        if (prevCard) prevCard.classList.remove('selected');
+        if (prevBtn) { prevBtn.classList.remove('is-selected'); prevBtn.textContent = 'Select'; }
+    }
+
+    selectedClassId = id;
+    const cls = gymClasses.find(c => c.id === id);
+    if (!cls) return;
+
+    // Highlight selected card
+    const card = document.querySelector(`.class-card[data-id="${id}"]`);
+    const btn = document.getElementById(`selectBtn-${id}`);
+    if (card) card.classList.add('selected');
+    if (btn) { btn.classList.add('is-selected'); btn.textContent = '✓ Selected'; }
+
+    // Update aside panel
+    updateSelectionPanel(cls);
+}
+
+function updateSelectionPanel(cls) {
+    const info = getSpotsInfo(cls);
+    document.getElementById('noSelectionState').style.display = 'none';
+    const detail = document.getElementById('selectionDetail');
+    detail.style.display = 'flex';
+    detail.innerHTML = `
+        <div class="sel-class-header">
+            <div class="sel-icon"><i class="${cls.icon}"></i></div>
+            <div>
+                <span class="${getBadge(cls.difficulty)}" style="font-size:10px; display:inline-block; margin-bottom:4px;">${cls.difficulty}</span>
+                <div class="sel-class-name">${cls.name}</div>
+                <div class="sel-class-trainer">${cls.trainer} · ${cls.specialty}</div>
+            </div>
+        </div>
+        <div class="sel-rows">
+            <div class="sel-row"><span>Day</span><strong>${cls.day}</strong></div>
+            <div class="sel-row"><span>Time</span><strong>${cls.time}</strong></div>
+            <div class="sel-row"><span>Duration</span><strong>${cls.duration} min</strong></div>
+            <div class="sel-row"><span>Spots Left</span>
+                <strong style="color:${info.spotsLeft <= 3 ? '#FF5C5C' : 'white'}">${info.spotsLeft}</strong>
+            </div>
+            <div class="sel-row sel-total-row"><span>Session Fee</span><strong>${cls.price} DZD</strong></div>
+        </div>
+        <button class="btn" onclick="goToCheckout()">
+            Confirm &amp; Pay <i class="fa-solid fa-arrow-right"></i>
+        </button>
+    `;
+
+    // Scroll aside to top on mobile
+    const aside = document.querySelector('.booking-side-card');
+    if (window.innerWidth < 960) aside.scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
+
+// ===================================================
+// CHECKOUT
+// ===================================================
+function goToCheckout() {
+    if (!selectedClassId) return;
+    const cls = gymClasses.find(c => c.id === selectedClassId);
+    // Save to sessionStorage for checkout.html to read
+    // When PHP backend is ready: POST to process-booking.php instead
+    sessionStorage.setItem('fitlife_booking', JSON.stringify(cls));
+    window.location.href = 'checkout.html';
+}
+
+// ===================================================
+// FILTER
+// ===================================================
+function filterClasses() {
+    const diff = document.getElementById('diffFilter').value;
+    const filtered = gymClasses.filter(c => {
+        const matchDay = activeDay === 'all' || c.day === activeDay;
+        const matchDiff = diff === 'all' || c.difficulty === diff;
+        return matchDay && matchDiff;
+    });
+    renderClasses(filtered);
+}
+
+function resetFilters() {
+    activeDay = 'all';
+    document.getElementById('diffFilter').value = 'all';
+    document.querySelectorAll('.day-pill').forEach(p => p.classList.remove('active'));
+    document.querySelector('.day-pill[data-day="all"]').classList.add('active');
+    renderClasses(gymClasses);
+}
+
+// ===================================================
+// INIT
+// ===================================================
+document.addEventListener('DOMContentLoaded', () => {
+    // Day pills
+    document.getElementById('dayPills').addEventListener('click', e => {
+        const pill = e.target.closest('.day-pill');
+        if (!pill) return;
+        document.querySelectorAll('.day-pill').forEach(p => p.classList.remove('active'));
+        pill.classList.add('active');
+        activeDay = pill.dataset.day;
+        filterClasses();
+    });
+
+    renderClasses(gymClasses);
+});
+</script>
+</body>
+</html>
