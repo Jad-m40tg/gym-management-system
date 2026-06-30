@@ -347,6 +347,22 @@
         .btn-select.is-selected { background: rgb(200,230,90); border-color: rgb(200,230,90); color: #000; }
         .btn-select.is-full-btn { border-color: rgba(255,92,92,0.3); color: rgba(255,92,92,0.5); cursor: not-allowed; }
 
+        /* Cancel button — red mirror of .btn-select */
+        .btn-cancel-select {
+            background: transparent;
+            color: #FF5C5C;
+            border: 1.5px solid rgba(255,92,92,0.6);
+            padding: 7px 16px;
+            border-radius: 20px;
+            font-family: 'Inter', sans-serif;
+            font-weight: 600;
+            font-size: 12px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            white-space: nowrap;
+        }
+        .btn-cancel-select:hover { background: #FF5C5C; border-color: #FF5C5C; color: #fff; }
+
         /* Badges */
         .badge-beginner, .badge-intermediate, .badge-advanced {
             display: inline-block;
@@ -458,6 +474,27 @@
         }
         .btn:hover { transform: translateY(-2px); background-color: rgb(210,240,90); }
         .btn:active { transform: translateY(2px); }
+
+        /* Secondary full-width red button — used for "Cancel Booking" in the sidebar */
+        .btn-cancel-full {
+            background-color: transparent;
+            color: #FF5C5C;
+            padding: 11px 24px;
+            border: solid 1.5px rgba(255,92,92,0.5);
+            border-radius: 30px;
+            font-family: 'Inter', sans-serif;
+            font-weight: 600;
+            font-size: 13px;
+            cursor: pointer;
+            transition: 0.22s ease;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+        .btn-cancel-full:hover { background-color: #FF5C5C; border-color: #FF5C5C; color: #fff; }
+        .btn-cancel-full:active { transform: translateY(1px); }
 
         /* Aside divider */
         .aside-divider { height: 1px; background: rgba(255,255,255,0.05); margin: 20px 0; }
@@ -832,6 +869,10 @@ function renderClasses(data) {
                         onclick="event.stopPropagation(); ${isFull ? '' : `selectClass(${cls.id})`}">
                     ${isFull ? 'Full' : isSelected ? '✓ Selected' : 'Select'}
                 </button>
+                ${isSelected ? `
+                <button class="btn-cancel-select" onclick="event.stopPropagation(); cancelSelection();">
+                    Cancel
+                </button>` : ''}
             </div>
         </article>`;
     }).join('');
@@ -863,6 +904,25 @@ function selectClass(id) {
     updateSelectionPanel(cls);
 }
 
+function cancelSelection() {
+    if (!selectedClassId) return;
+
+    // Clear highlight + button state on the previously selected card
+    const prevCard = document.querySelector(`.class-card[data-id="${selectedClassId}"]`);
+    if (prevCard) prevCard.classList.remove('selected');
+
+    selectedClassId = null;
+
+    // Re-render the list so the per-card "Cancel" button disappears
+    // and the Select button goes back to its default green state
+    filterClasses();
+
+    // Restore the empty state in the sidebar
+    document.getElementById('selectionDetail').style.display = 'none';
+    document.getElementById('selectionDetail').innerHTML = '';
+    document.getElementById('noSelectionState').style.display = 'block';
+}
+
 function updateSelectionPanel(cls) {
     const info = getSpotsInfo(cls);
     document.getElementById('noSelectionState').style.display = 'none';
@@ -888,6 +948,9 @@ function updateSelectionPanel(cls) {
         </div>
         <button class="btn" onclick="goToCheckout()">
             Confirm &amp; Pay <i class="fa-solid fa-arrow-right"></i>
+        </button>
+        <button class="btn-cancel-full" onclick="cancelSelection()">
+            <i class="fa-solid fa-xmark"></i> Cancel Selection
         </button>
     `;
 
